@@ -19,11 +19,19 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """initialization"""
-        # args executed at first, but for kwargs, id not present because the object already has an id from args
-
+        # instanciate an object with data in kwargs if kwargs is present
         if kwargs:
-            kwargs['created_at'] = datetime.strptime(kwargs['created_at'], %Y-%m-%dT%H:%M:%S.%f)
-            kwargs['updated_at'] = datetime.strptime(kwargs['updted_at'], %Y-%m-%dT%H:%M:%S.%f)
+            for key, value in kwargs.items():
+                if key != "__class__":
+                    setattr(self, key, value)
+            
+            if kwargs.get("created_at", None):
+                kwargs['created_at'] = datetime.strptime(kwargs['created_at'], %Y-%m-%dT%H:%M:%S.%f)
+            if kwargs.get("updated_at", None):
+                kwargs['updated_at'] = datetime.strptime(kwargs['updted_at'], %Y-%m-%dT%H:%M:%S.%f)
+            if kwargs.get("id", None):
+                setattr(self, id, str(uuid.uuid4()))
+        # instanciate an object if kwargs is not present
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.utcnow()
@@ -43,6 +51,8 @@ class BaseModel:
         dictionary["created_at"] = dictionary["created_at"].isoformat()
         dictionary["updated_at"] = dictionary["updated_at"].isoformat()
         dictionary["__class__"] = type(self).__name__
+        if "_sa_instance_state" in dictionary:
+            del dictionary["_sa_instance_state"]
 
         return dictionary
 
