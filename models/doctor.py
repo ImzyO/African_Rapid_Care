@@ -9,7 +9,7 @@ from sqlalchemy.orm import relationship
 class Doctor(User):
     """doctor class with attributes of patient"""
 
-    __tablename = "patients"
+    __tablename = "doctors"
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
     doctor_info = Column(String(1024), nullable=True)
     
