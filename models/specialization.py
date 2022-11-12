@@ -14,7 +14,11 @@ class Specialization(Base):
     specialization_name = Column(String(60), nullable=False)
     sp_info = Column(String(1024), , nullable=True)
 
-    doctor_specialization = relationship('DoctorSpecialization', backref='specialization')
+    # if we created a class DoctorSpecialization, we could add the pseudo column
+    # doctor_specializations as follows:
+    # doctor_specializations = relationship('DoctorSpecialization',
+    #                                       backref='specializations',
+    #                                       cascade='delete')
 
     def __init__(self, *args, **kwargs):
         """initialization"""

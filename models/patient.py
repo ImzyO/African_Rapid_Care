@@ -18,7 +18,11 @@ class Patient(User):
     city = Column(String(100), nullable=False)
     address = Column(String(200), nullable=False)
     
-    patient_doctor = relationship('PatientDoctor', backref='patient')
+    # one to many relationship between patient and appointment
+    appointments = relationship('Appointment', backref='patient', cascade='delete')
+    
+    # one to many relationship between patient and review
+    reviews = relationship('Review', backref='patient', cascade='delete')
 
     g = geocoder.ip('me')
     gcode = g.latlng
