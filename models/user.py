@@ -23,8 +23,8 @@ class User(BaseModel, Base):
     gender = Column(String(100), nullable=False)
     birthday = Column(String(100), nullable=False)
 
-    patient = relationship('Patient', backref='user')
-    doctor = relationship('Doctor', backref='user')
+    patient = relationship('Patient', backref='user', uselist=False)
+    doctor = relationship('Doctor', backref='user', uselist=False)
 
     def __init__(self, *args, **kwargs):
         """initialization"""

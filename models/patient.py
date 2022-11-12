@@ -12,13 +12,13 @@ class Patient(User):
 
     __tablename = "patients"
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
-    latitude = Column(Float, nullable=True)
-    longitude = Column(Float, nullable=True)
+    latitude = Column(Float, nullable=False)
+    longitude = Column(Float, nullable=False)
     country = Column(String(100), nullable=False)
     city = Column(String(100), nullable=False)
     address = Column(String(200), nullable=False)
     
-    # one to many relationship between patient and appointment
+    # one to many relationship between patients and appointments
     appointments = relationship('Appointment', backref='patient', cascade='delete')
     
     # one to many relationship between patient and review

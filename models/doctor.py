@@ -19,16 +19,16 @@ doctor_specialization = Table("doctor_specialization", Base.metadata,
                                      nullable=False),
                               Column("ds_info",
                                      String(1024), 
-                                     nullable=True)) 
+                                     nullable=False)) 
 
 class Doctor(User):
     """doctor class with attributes of patient"""
 
     __tablename = "doctors"
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
-    doctor_info = Column(String(1024), nullable=True)
+    doctor_info = Column(String(1024), nullable=False)
     
-    # one to many relationship between doctor and review
+    # one to many relationship between doctors and reviews
     reviews = relationship('Review', backref='doctor', cascade='delete')
 
     # many to many between Doctor and Specialization through doctor_specialization
