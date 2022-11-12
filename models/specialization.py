@@ -15,3 +15,7 @@ class Specialization(Base):
     sp_info = Column(String(1024), , nullable=True)
 
     doctor_specialization = relationship('DoctorSpecialization', backref='specialization')
+
+    def __init__(self, *args, **kwargs):
+        """initialization"""
+        super().__init__(*args, **kwargs)

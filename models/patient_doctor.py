@@ -13,3 +13,7 @@ class PatientDoctor(Basemodel, Base):
     patient_id = Column(String(60), ForeignKey('patients.id'), nullable=False)
     doctor_id = Column(String(60), ForeignKey('doctors.id'), nullable=False)
     pd_info = Column(String(1024), nullable=True)
+
+    def __init__(self, *args, **kwargs):
+        """initialization"""
+        super().__init__(*args, **kwargs)

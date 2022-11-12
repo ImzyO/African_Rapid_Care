@@ -14,3 +14,7 @@ class DoctorSpecialization(Base):
     doctor_id = Column(String(60), ForeignKey('doctors.id'), nullable=False)
     specialization_id = Column(String(60), ForeignKey('specializations.id'), nullable=False)
     ds_info = Column(String(1024), nullable=True)
+
+    def __init__(self, *args, **kwargs):
+        """initialization"""
+        super().__init__(*args, **kwargs)

@@ -23,6 +23,10 @@ class Patient(User):
     g = geocoder.ip('me')
     gcode = g.latlng
 
+    def __init__(self, *args, **kwargs):
+        """initialization"""
+        super().__init__(*args, **kwargs)
+
     def __setattr__(self, name, value):
         """sets latitude and longitude attributes"""
         if name == "latitude":

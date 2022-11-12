@@ -14,3 +14,7 @@ class Doctor(User):
     doctor_info = Column(String(1024), nullable=True)
     
     patient_doctor = relationship('PatientDoctor', backref='doctor')
+
+    def __init__(self, *args, **kwargs):
+        """initialization"""
+        super().__init__(*args, **kwargs)
