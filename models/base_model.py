@@ -29,7 +29,7 @@ class BaseModel:
                 kwargs['created_at'] = datetime.strptime(kwargs['created_at'], %Y-%m-%dT%H:%M:%S.%f)
             if kwargs.get("updated_at", None):
                 kwargs['updated_at'] = datetime.strptime(kwargs['updted_at'], %Y-%m-%dT%H:%M:%S.%f)
-            if kwargs.get("id", None):
+            if kwargs.get("id", None) is None:
                 setattr(self, id, str(uuid.uuid4()))
         # instanciate an object if kwargs is not present
         else:
