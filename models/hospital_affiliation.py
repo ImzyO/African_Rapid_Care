@@ -2,6 +2,7 @@
 """module serving associated hospital"""
 from sqlalchemy import Column, String, ForeignKey
 from models.base_model import BaseModel, Base
+from sqlalchemy.orm import relationship
 
 
 class HospitalAffiliation(BaseModel, Base):
@@ -17,4 +18,11 @@ class HospitalAffiliation(BaseModel, Base):
     hospital_type = Column(String(100), nullable=False)
 
 
-    doctor_id = Column(String(60), ForeignKey('doctors.id'), nullable=False) # check with nabil doctors id 
+    doctor_id = Column(String(60), ForeignKey('doctors.id'), nullable=False) 
+
+    offices = relationship('Office', backref='hospitalaffiliation', cascade='delete')
+
+
+    def __init__(self, *args, **kwargs):
+        """initialization"""
+        super().__init__(*args, **kwargs)
