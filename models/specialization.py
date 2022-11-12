@@ -6,12 +6,11 @@ from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 
 
-class Specialization(Base):
+class Specialization(BaseModel, Base):
     """Specialization class"""
 
     __tablename = "specializations"
-    specialization_id = Column(String(60), primary_key=True, nullable=False)
-    specialization_name = Column(String(60), nullable=False)
+    specialization_name = Column(String(100), nullable=False)
     sp_info = Column(String(1024), , nullable=True)
 
     # if we created a class DoctorSpecialization, we could add the pseudo column
