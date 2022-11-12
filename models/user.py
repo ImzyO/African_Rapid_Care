@@ -13,7 +13,7 @@ class User(BaseModel, Base):
     """user class with attributes of user"""
     """user relates to doctor and patient modules via Foregin keys"""
 
-    __tablename = "users"
+    __tablename__ = "users"
     user_name = Column(String(100), nullable=False)
     email = Column(String(100), nullable=False)
     password = Column(String(200), nullable=False)

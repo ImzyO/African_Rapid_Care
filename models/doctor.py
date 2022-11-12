@@ -31,12 +31,15 @@ class Doctor(User):
     # one to many relationship between doctors and reviews
     reviews = relationship('Review', backref='doctor', cascade='delete')
 
-    # many to many between Doctor and Specialization through doctor_specialization
+    # many to many between doctors and specializations through doctor_specialization
     specializations = relationship('Specialization',
                                    secondary=doctor_specialization,
                                    viewonly=False,
                                    # backref is pseudo column created in Specialization
                                    backref='doctor_specializations')
+
+    # one to many relationship between doctors and hospital_affiliation
+    hospitals = relationship('HospitalAffiliation', backref="doctor", cascade='delete')
     
     
     def __init__(self, *args, **kwargs):
