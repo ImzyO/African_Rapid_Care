@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 """module for database engine"""
+
+
+import models
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import sessionmaker, scoped_session
 import os

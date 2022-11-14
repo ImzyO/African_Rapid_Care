@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 """module defines a class Doctor"""
 
+
+import models
+import sqlalchemy
+from models.user import User
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey, Table
 from sqlalchemy.orm import relationship
@@ -25,7 +29,7 @@ class Doctor(User):
     """doctor class with attributes of patient"""
 
     __tablename = "doctors"
-    user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
+    users_id = Column(String(60), ForeignKey('users.id'), nullable=False)
     doctor_info = Column(String(1024), nullable=False)
     
     # one to many relationship between doctors and reviews

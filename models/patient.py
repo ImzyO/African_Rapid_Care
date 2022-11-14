@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 """module defines a class Patient"""
 
+
+import models
+import sqlalchemy
+from models.user import User
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, Float, ForeignKey
 from sqlalchemy.orm import relationship

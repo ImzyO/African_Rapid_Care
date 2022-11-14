@@ -1,7 +1,11 @@
 #!/usr/bin/python3
 """module defines the status of an appointment"""
+
+
+import models
+import sqlalchemy
 from models.base_model import BaseModel, Base
-from sqlalchemy import String, Column, ForeignKey
+from sqlalchemy import String, Column
 from sqlalchemy.orm import relationship
 
 

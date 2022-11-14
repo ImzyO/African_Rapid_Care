@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 """module defines office associated with hospital and doctor"""
+
+
+import models
+import sqlalchemy
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey, Float
 from sqlalchemy.orm import relationship
@@ -49,6 +53,6 @@ class Office(BaseModel, Base):
             if name == 'latitude':
                 value = float(geometry['location']['lat'])
             if name == 'longitude':
-                value = float(geometry['location']['long'))
+                value = float(geometry['location']['long'])
             
         super().__setattr__(name, value)

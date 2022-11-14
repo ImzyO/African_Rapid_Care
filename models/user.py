@@ -3,6 +3,10 @@
 module defines a class user: who could be a patient/doctor:
 attributes apply to both as they are both users
 """
+
+
+import models
+import sqlalchemy
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
