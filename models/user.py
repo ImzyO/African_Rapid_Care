@@ -25,7 +25,7 @@ class User(BaseModel, Base):
     first_name = Column(String(100), nullable=False)
     last_name = Column(String(100), nullable=False)
     gender = Column(String(100), nullable=False)
-    birthday = Column(String(100), nullable=False)
+    birthday = Column(DateTime, nullable=False)
 
     patient = relationship('Patient', backref='user', uselist=False)
     doctor = relationship('Doctor', backref='user', uselist=False)
