@@ -8,7 +8,7 @@ attributes apply to both as they are both users
 import models
 import sqlalchemy
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, DateTime
 from sqlalchemy.orm import relationship
 import hashlib
 
