@@ -44,8 +44,7 @@ class Doctor(User):
 
     # one to many relationship between doctors and hospital_affiliation
     hospitals = relationship('HospitalAffiliation', backref="doctor", cascade='delete')
-    
-    
+
     def __init__(self, *args, **kwargs):
         """initialization"""
         super().__init__(*args, **kwargs)
