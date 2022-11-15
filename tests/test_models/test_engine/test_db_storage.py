@@ -23,6 +23,7 @@ import pep8
 import unittest
 from models import database_storage
 DBstorage = db_storage.DBstorage
+
 classes = {"Patient": Patient, "Doctor": Doctor,
            "Review": Review, "Specialization": Specialization,
            "User": User, "HospitalAffiliation": HospitalAffiliation,
