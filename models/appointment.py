@@ -6,7 +6,9 @@ import models
 import sqlalchemy
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey, DateTime
+from sqlalchemy.orm import relationship
 from datetime import datetime
+from models.patient import Patient
 
 
 class Appointment(BaseModel, Base):
@@ -22,7 +24,6 @@ class Appointment(BaseModel, Base):
     office_id = Column(String(60), ForeignKey("offices.id"), nullable=False)
     patient_id = Column(String(60), ForeignKey("patients.id"), nullable=False)
     appointment_status_id = Column(String(60), ForeignKey("appointment_status.id"), nullable=False)
-
 
     def __init__(self, *args, **kwargs):
         """initialization"""

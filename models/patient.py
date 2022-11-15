@@ -11,19 +11,23 @@ from sqlalchemy.orm import relationship
 import geocoder
 
 
-class Patient(User):
+class Patient(User, BaseModel, Base):
     """patient class with attributes of patient"""
-
-    __tablename = "patients"
+    
+    __tablename__ = "patients"
+    # id = Column(String(60), primary_key=True, nullable=False)
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
     latitude = Column(Float, nullable=False)
     longitude = Column(Float, nullable=False)
     country = Column(String(100), nullable=False)
     city = Column(String(100), nullable=False)
     address = Column(String(200), nullable=False)
-    
+
     # one to many relationship between patients and appointments
-    appointments = relationship('Appointment', backref='patient', cascade='delete')
+    appointments = relationship('Appointment',
+                                # backref='patient',
+                                primaryjoin="Appointment.patient_id==Patient.id",
+                                cascade='delete')
     
     # one to many relationship between patient and review
     reviews = relationship('Review', backref='patient', cascade='delete')
