@@ -15,7 +15,8 @@ class Specialization(BaseModel, Base):
     specialization_name = Column(String(100), nullable=False)
     sp_info = Column(String(1024), nullable=False)
 
-    # if we created a class DoctorSpecialization, we could add the pseudo column
+    # if we created a class DoctorSpecialization,
+    # we could add the pseudo column
     # doctor_specializations as follows:
     # doctor_specializations = relationship('DoctorSpecialization',
     #                                       backref='specializations',
