@@ -27,29 +27,7 @@ FLUSH PRIVILEGES;
 
 USE arc_dev_db;
 
--- 
--- @block Table structure for table `users`
---
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `users` (
-    `id` varchar(60) NOT NULL,
-    `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `user_name` varchar(100) NOT NULL,
-    `email` varchar(100) NOT NULL,
-    `password` varchar(200) NOT NULL,
-    `phone_number` varchar(100) NOT NULL,
-    `first_name` varchar(100) NOT NULL,
-    `last_name` varchar(100) NOT NULL,
-    `gender` varchar(100) NOT NULL,
-    `birthdate` datetime NOT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
 -- @block Table structure for table `patients`
 --
 DROP TABLE IF EXISTS `patients`;
@@ -59,15 +37,23 @@ CREATE TABLE `patients` (
     `id` varchar(60) NOT NULL,
     `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `user_id` varchar(60) NOT NULL,
+--    `user_id` varchar(60) NOT NULL,
     `latitude` float NOT NULL,
     `longitude` float NOT NULL,
     `country` varchar(100) NOT NULL,
     `city` varchar(100) NOT NULL,
     `address` varchar(200) NOT NULL,
-    PRIMARY KEY (`id`),
-    KEY `user_id` (`user_id`),
-    CONSTRAINT `patients_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+    `user_name` varchar(100) NOT NULL,
+    `email` varchar(100) NOT NULL,
+    `password` varchar(200) NOT NULL,
+    `phone_number` varchar(100) NOT NULL,
+    `first_name` varchar(100) NOT NULL,
+    `last_name` varchar(100) NOT NULL,
+    `gender` varchar(100) NOT NULL,
+    `birthdate` datetime NOT NULL,
+    PRIMARY KEY (`id`)
+--    KEY `user_id` (`user_id`),
+--    CONSTRAINT `patients_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -135,11 +121,19 @@ CREATE TABLE `doctors` (
     `id` varchar(60) NOT NULL,
     `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `userd_id` varchar(60) NOT NULL,
+--    `userd_id` varchar(60) NOT NULL,
     `doctor_info` varchar(1024) NOT NULL,
-    PRIMARY KEY (`id`),
-    KEY `userd_id` (`userd_id`),
-    CONSTRAINT `doctors_ibfk_1` FOREIGN KEY (`userd_id`) REFERENCES `users` (`id`)
+    `user_name` varchar(100) NOT NULL,
+    `email` varchar(100) NOT NULL,
+    `password` varchar(200) NOT NULL,
+    `phone_number` varchar(100) NOT NULL,
+    `first_name` varchar(100) NOT NULL,
+    `last_name` varchar(100) NOT NULL,
+    `gender` varchar(100) NOT NULL,
+    `birthdate` datetime NOT NULL,
+    PRIMARY KEY (`id`)
+--    KEY `userd_id` (`userd_id`),
+--    CONSTRAINT `doctors_ibfk_1` FOREIGN KEY (`userd_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

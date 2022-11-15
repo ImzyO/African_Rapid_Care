@@ -8,7 +8,7 @@ import inspect
 import models
 from models.engine import db_storage
 from models.base_model import BaseModel, Base
-from models.user import User
+# from models.user import User
 from models.patient import Patient
 from models.doctor import Doctor
 from models.specialization import Specialization
@@ -26,7 +26,7 @@ DBstorage = db_storage.DBstorage
 
 classes = {"Patient": Patient, "Doctor": Doctor,
            "Review": Review, "Specialization": Specialization,
-           "User": User, "HospitalAffiliation": HospitalAffiliation,
+           "HospitalAffiliation": HospitalAffiliation,
            "Office": Office, "OfficeHours": OfficeHours,
            "Appointment": Appointment,
            "AppointmentStatus": AppointmentStatus}
