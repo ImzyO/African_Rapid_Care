@@ -29,7 +29,7 @@ class Doctor(User):
     """doctor class with attributes of patient"""
 
     __tablename = "doctors"
-    users_id = Column(String(60), ForeignKey('users.id'), nullable=False)
+    userd_id = Column(String(60), ForeignKey('users.id'), nullable=False)
     doctor_info = Column(String(1024), nullable=False)
     
     # one to many relationship between doctors and reviews
