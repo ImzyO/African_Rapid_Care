@@ -27,8 +27,14 @@ class User(BaseModel, Base):
     gender = Column(String(100), nullable=False)
     birthdate = Column(DateTime, nullable=False)
 
-    patient = relationship('Patient', backref='user', uselist=False)
-    doctor = relationship('Doctor', backref='user', uselist=False)
+    patient = relationship('Patient',
+                           primaryjoin="Patient.user_id==User.id",
+                           # backref="user",
+                           uselist=False)
+    doctor = relationship('Doctor',
+                          primaryjoin="Doctor.userd_id==User.id",
+                          # backref="user",
+                          uselist=False)
 
     def __init__(self, *args, **kwargs):
         """initialization"""
