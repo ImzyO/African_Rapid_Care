@@ -42,16 +42,16 @@ class Doctor(User, BaseModel, Base):
                                       # backref is pseudo column created in Specialization
                                       backref='doctor_specializations')
 
-    # one to many relationship between doctors and hospital_affiliation
-    hospitals = relationship('HospitalAffiliation', backref="doctor", cascade='delete')
+       # one to many relationship between doctors and hospital_affiliation
+       hospitals = relationship('HospitalAffiliation', backref="doctor", cascade='delete')
 
-    def __init__(self, *args, **kwargs):
-        """initialization"""
-        super().__init__(*args, **kwargs)
+       def __init__(self, *args, **kwargs):
+           """initialization"""
+           super().__init__(*args, **kwargs)
        
-    # one to many relationship between doctors and hospital_affiliation
-    hospitals = relationship('HospitalAffiliation', backref="doctor", cascade='delete')
+       # one to many relationship between doctors and hospital_affiliation
+       hospitals = relationship('HospitalAffiliation', backref="doctor", cascade='delete')
 
-    def __init__(self, *args, **kwargs):
-        """initialization"""
-        super().__init__(*args, **kwargs)
+       def __init__(self, *args, **kwargs):
+           """initialization"""
+           super().__init__(*args, **kwargs)
