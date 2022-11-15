@@ -28,12 +28,12 @@ class User(BaseModel, Base):
     birthdate = Column(DateTime, nullable=False)
 
     patient = relationship('Patient',
-                           primaryjoin="Patient.user_id==User.id",
-                           # backref="user",
+                           # primaryjoin="Patient.user_id==User.id",
+                           backref="user",
                            uselist=False)
     doctor = relationship('Doctor',
-                          primaryjoin="Doctor.userd_id==User.id",
-                          # backref="user",
+                          # primaryjoin="Doctor.userd_id==User.id",
+                          backref="user",
                           uselist=False)
 
     def __init__(self, *args, **kwargs):
