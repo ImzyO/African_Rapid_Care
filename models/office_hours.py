@@ -14,8 +14,12 @@ class OfficeHours(BaseModel, Base):
     __tablename__ = "office_hours"
 
     day_of_the_week = Column(String(10), nullable=False)
-    start_time = Column(DateTime, nullable=False, default=datetime.strptime(str(datetime.utcnow()), "%Y-%m-%d %H:%M:%S.%f"))
-    end_time = Column(DateTime, nullable=False, default=datetime.strptime(str(datetime.utcnow()), "%Y-%m-%d %H:%M:%S.%f"))
+    start_time = Column(DateTime, nullable=False,
+                        default=datetime.strptime(str(datetime.utcnow()),
+                                                  "%Y-%m-%d %H:%M:%S.%f"))
+    end_time = Column(DateTime, nullable=False,
+                      default=datetime.strptime(str(datetime.utcnow()),
+                                                "%Y-%m-%d %H:%M:%S.%f"))
     availability = Column(String(10), nullable=False)
 
     office_id = Column(String(60), ForeignKey("offices.id"), nullable=False)
