@@ -8,7 +8,7 @@ attributes apply to both as they are both users
 import models
 import sqlalchemy
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, DateTime
 from sqlalchemy.orm import relationship
 import hashlib
 
@@ -25,7 +25,7 @@ class User(BaseModel, Base):
     first_name = Column(String(100), nullable=False)
     last_name = Column(String(100), nullable=False)
     gender = Column(String(100), nullable=False)
-    birthday = Column(String(100), nullable=False)
+    birthdate = Column(DateTime, nullable=False)
 
     patient = relationship('Patient', backref='user', uselist=False)
     doctor = relationship('Doctor', backref='user', uselist=False)

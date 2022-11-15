@@ -19,7 +19,7 @@ class Office(BaseModel, Base):
     country = Column(String(128), nullable = False)
     city = Column(String(128), nullable = False)
     office_address = Column(String(128), nullable = False)
-    information = Column(String(128), nullable = False)
+    info = Column(String(1024), nullable = False)
 
 
     doctor_id = Column(String(60), ForeignKey('doctors.id'), nullable=False)
