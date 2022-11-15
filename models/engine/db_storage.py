@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """module for database engine"""
 
-
 import models
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import sessionmaker, scoped_session
@@ -35,8 +34,10 @@ class DBstorage:
         """initialization"""
         # {} {} {} {} - name, password, host, database name
         self.__engine = create_engine("mysql+mysqldb://{}:{}@{}/{}".format(
-            os.environ.get('ARC_MYSQL_USER'), os.environ.get('ARC_MYSQL_PASSWORD'),
-            os.environ.get('ARC_MYSQL_HOST'), os.environ.get('ARC_MYSQL_DB')))
+            os.environ.get('ARC_MYSQL_USER'),
+            os.environ.get('ARC_MYSQL_PASSWORD'),
+            os.environ.get('ARC_MYSQL_HOST'),
+            os.environ.get('ARC_MYSQL_DB')))
 
     def all(self, cls=None):
         """query the current database session and return objects
@@ -49,7 +50,6 @@ class DBstorage:
                     key = obj.__class__.__name__ + '.' + obj.id
                     dictionary[key] = obj
         return dictionary
-                
 
     def new(self, obj):
         """brand new instancs added"""
@@ -60,15 +60,18 @@ class DBstorage:
         self.__session.commit()
 
     def delete(self):
-        """method places an instance into the Session’s list of objects to be marked as deleted"""
+        """method places an instance into the Session’s
+        list of objects to be marked as deleted"""
         self.__session.delete(obj)
         self.save()
 
     def reload(self):
         """refreshing objects or when ORM lazy load operations occur"""
         Base.metadata.create_all(self.__engine)
-        self.__session = scoped_session(sessionmaker(bind=self.__engine, expire_on_commit=False))
-    
+        self.__session = scoped_session(sessionmaker(
+            bind=self.__engine, expire_on_commit=False))
+
     def close(self):
-        """ method is more like a “reset” back to the clean state and not as much like a “database close” method."""
-        self.__sesion.close() 
+        """ method is more like a “reset” back to the clean state
+        and not as much like a “database close” method."""
+        self.__sesion.close()
