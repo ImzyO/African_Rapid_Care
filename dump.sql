@@ -45,6 +45,7 @@ CREATE TABLE `users` (
     `last_name` varchar(100) NOT NULL,
     `gender` varchar(100) NOT NULL,
     `birthdate` datetime NOT NULL,
+    `type` varchar(50),
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -64,6 +65,7 @@ CREATE TABLE `patients` (
     `country` varchar(100) NOT NULL,
     `city` varchar(100) NOT NULL,
     `address` varchar(200) NOT NULL,
+    `type` varchar(50),
 --    `user_name` varchar(100) NOT NULL,
 --    `email` varchar(100) NOT NULL,
 --    `password` varchar(200) NOT NULL,
@@ -148,6 +150,7 @@ CREATE TABLE `doctors` (
 --    `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 --    `userd_id` varchar(60) NOT NULL,
     `doctor_info` varchar(1024) NOT NULL,
+    `type` varchar(50),
 --    `user_name` varchar(100) NOT NULL,
 --    `email` varchar(100) NOT NULL,
 --    `password` varchar(200) NOT NULL,

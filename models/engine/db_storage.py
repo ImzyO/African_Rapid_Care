@@ -60,7 +60,7 @@ class DBstorage:
         """saves atm transactions"""
         self.__session.commit()
 
-    def delete(self):
+    def delete(self, obj=None):
         """method places an instance into the Session’s
         list of objects to be marked as deleted"""
         self.__session.delete(obj)

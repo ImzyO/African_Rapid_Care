@@ -51,19 +51,20 @@ class Patient(User):
     # one to many relationship between patient and review
     reviews = relationship('Review', backref='patient', cascade='delete')
 
-    g = geocoder.ip('me')
-    gcode = g.latlng
-
     def __init__(self, *args, **kwargs):
         """initialization"""
         super().__init__(*args, **kwargs)
 
     def __setattr__(self, name, value):
         """sets password, latitude and longitude attributes"""
-        # if name == "password":
-        #    value = hashlib.sha512(value.encode()).hexdigest()
+        if name == "password":
+            value = hashlib.sha512(value.encode()).hexdigest()
+        # g = geocoder.ip('me')
+        # gcode = g.latlng
         if name == "latitude":
-            value = g.latlng[0]
+            # value = g.latlng[0]
+            value = 1.656898
         if name == "longitude":
-            value = g.latlng[1]
+            # value = g.latlng[1]
+            value = 1.65987
         super().__setattr__(name, value)
