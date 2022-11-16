@@ -12,6 +12,7 @@ import unittest
 from models import patient
 from models import user
 Patient = patient.Patient
+User = user.User
 
 
 class TestPatientDocs(unittest.TestCase):
@@ -65,8 +66,8 @@ class TestPatient(unittest.TestCase):
         patient = Patient()
         self.assertIsInstance(patient, User)
         self.assertTrue(hasattr(patient, "id"))
-        # self.assertTrue(hasattr(patient, "created_at"))
-        # self.assertTrue(hasattr(patient, "updated_at"))
+        self.assertTrue(hasattr(patient, "created_at"))
+        self.assertTrue(hasattr(patient, "updated_at"))
 
     def test_user_name_attr(self):
         """Test that Patient has attr user_name, and it's an empty string"""
@@ -153,7 +154,8 @@ class TestPatient(unittest.TestCase):
         self.assertEqual(type(new_d), dict)
         self.assertFalse("_sa_instance_state" in new_d)
         for attr in p.__dict__:
-            if attr is not "_sa_instance_state":
+            # if attr is not "_sa_instance_state":
+            if attr != "_sa_instance_state":
                 self.assertTrue(attr in new_d)
         self.assertTrue("__class__" in new_d)
 

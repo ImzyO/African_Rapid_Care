@@ -66,8 +66,8 @@ class TestDoctor(unittest.TestCase):
         doctor = Doctor()
         self.assertIsInstance(doctor, User)
         self.assertTrue(hasattr(doctor, "id"))
-    #    self.assertTrue(hasattr(doctor, "created_at"))
-    #    self.assertTrue(hasattr(doctor, "updated_at"))
+        self.assertTrue(hasattr(doctor, "created_at"))
+        self.assertTrue(hasattr(doctor, "updated_at"))
 
     def test_user_name_attr(self):
         """Test that Doctor has attr user_name, and it's an empty string"""
@@ -130,7 +130,8 @@ class TestDoctor(unittest.TestCase):
         self.assertEqual(type(new_d), dict)
         self.assertFalse("_sa_instance_state" in new_d)
         for attr in d.__dict__:
-            if attr is not "_sa_instance_state":
+            # if attr is not "_sa_instance_state":
+            if attr != "_sa_instance_state":
                 self.assertTrue(attr in new_d)
         self.assertTrue("__class__" in new_d)
 
