@@ -16,16 +16,16 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 -- @block Drop database
-DROP DATABASE IF EXISTS arc_dev_db;
+DROP DATABASE IF EXISTS arc_dev_db2;
 
 -- Create database + user if doesn't exist
-CREATE DATABASE IF NOT EXISTS arc_dev_db;
-CREATE USER IF NOT EXISTS 'arc_dev'@'localhost' IDENTIFIED BY 'arc_dev_pwd';
-GRANT ALL PRIVILEGES ON `arc_dev_db`.* TO 'arc_dev'@'localhost';
-GRANT SELECT ON `performance_schema`.* TO 'arc_dev'@'localhost';
+CREATE DATABASE IF NOT EXISTS arc_dev_db2;
+CREATE USER IF NOT EXISTS 'arc_dev2'@'localhost' IDENTIFIED BY 'arc_dev_pwd';
+GRANT ALL PRIVILEGES ON `arc_dev_db2`.* TO 'arc_dev2'@'localhost';
+GRANT SELECT ON `performance_schema`.* TO 'arc_dev2'@'localhost';
 FLUSH PRIVILEGES;
 
-USE arc_dev_db;
+USE arc_dev_db2;
 
 -- 
 -- @block Table structure for table `users`

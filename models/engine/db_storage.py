@@ -6,7 +6,7 @@ from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import sessionmaker, scoped_session
 import os
 from models.base_model import BaseModel, Base
-# from models.user import User
+from models.user import User
 from models.patient import Patient
 from models.doctor import Doctor
 from models.specialization import Specialization
@@ -17,7 +17,8 @@ from models.office_hours import OfficeHours
 from models.appointment import Appointment
 from models.appointment_status import AppointmentStatus
 
-classes = {"Patient": Patient, "Doctor": Doctor,
+classes = {"User": User,
+           "Patient": Patient, "Doctor": Doctor,
            "Review": Review, "Specialization": Specialization,
            "HospitalAffiliation": HospitalAffiliation,
            "Office": Office, "OfficeHours": OfficeHours,

@@ -10,7 +10,9 @@ from models.base_model import BaseModel
 import pep8
 import unittest
 from models import doctor
+from models import user
 Doctor = doctor.Doctor
+User = user.User
 
 
 class TestDoctorDocs(unittest.TestCase):
@@ -60,12 +62,12 @@ class TestDoctorDocs(unittest.TestCase):
 class TestDoctor(unittest.TestCase):
     """Test the Doctor class"""
     def test_is_subclass(self):
-        """Test that Doctor is a subclass of BaseModel"""
+        """Test that Doctor is a subclass of User"""
         doctor = Doctor()
-        self.assertIsInstance(doctor, BaseModel)
+        self.assertIsInstance(doctor, User)
         self.assertTrue(hasattr(doctor, "id"))
-        self.assertTrue(hasattr(doctor, "created_at"))
-        self.assertTrue(hasattr(doctor, "updated_at"))
+    #    self.assertTrue(hasattr(doctor, "created_at"))
+    #    self.assertTrue(hasattr(doctor, "updated_at"))
 
     def test_user_name_attr(self):
         """Test that Doctor has attr user_name, and it's an empty string"""

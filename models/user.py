@@ -26,6 +26,12 @@ class User(BaseModel, Base):
     last_name = Column(String(100), nullable=False)
     gender = Column(String(100), nullable=False)
     birthdate = Column(DateTime, nullable=False)
+    type = Column(String(50))
+
+    __mapper_args__ = {
+        'polymorphic_identity': 'user',
+        'polymorphic_on': type
+    }
 
     patient = relationship('Patient',
                            # primaryjoin="Patient.user_id==User.id",
