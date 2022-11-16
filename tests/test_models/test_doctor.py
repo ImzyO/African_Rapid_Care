@@ -10,7 +10,9 @@ from models.base_model import BaseModel
 import pep8
 import unittest
 from models import doctor
+from models import user
 Doctor = doctor.Doctor
+User = user.User
 
 
 class TestDoctorDocs(unittest.TestCase):
@@ -60,9 +62,9 @@ class TestDoctorDocs(unittest.TestCase):
 class TestDoctor(unittest.TestCase):
     """Test the Doctor class"""
     def test_is_subclass(self):
-        """Test that Doctor is a subclass of BaseModel"""
+        """Test that Doctor is a subclass of User"""
         doctor = Doctor()
-        self.assertIsInstance(doctor, BaseModel)
+        self.assertIsInstance(doctor, User)
         self.assertTrue(hasattr(doctor, "id"))
         self.assertTrue(hasattr(doctor, "created_at"))
         self.assertTrue(hasattr(doctor, "updated_at"))
@@ -128,7 +130,8 @@ class TestDoctor(unittest.TestCase):
         self.assertEqual(type(new_d), dict)
         self.assertFalse("_sa_instance_state" in new_d)
         for attr in d.__dict__:
-            if attr is not "_sa_instance_state":
+            # if attr is not "_sa_instance_state":
+            if attr != "_sa_instance_state":
                 self.assertTrue(attr in new_d)
         self.assertTrue("__class__" in new_d)
 
