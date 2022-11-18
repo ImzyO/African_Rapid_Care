@@ -80,6 +80,7 @@ table {
 .header-flex-logo {
     /*border: 1px solid black;*/
     margin-left: 40px;
+    flex-shrink: 0;
 }
 .header-flex-logo img {
     width: 100%;
@@ -126,6 +127,7 @@ table {
    /* margin-right: 20px;
     /*align-self: flex-end;*/
     flex: 1;
+    flex-shrink: 0;
 }
 
 .header-flex-user img {

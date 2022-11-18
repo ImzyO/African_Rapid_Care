@@ -1,4 +1,5 @@
 .filters {
+    
     position: relative;
     background: white;
     height: 70px;
@@ -6,6 +7,8 @@
     border: 1px solid #DDDDDD;
     border-radius: 4px;
     margin-top: 20px;
+
+    margin-bottom: 50px;
 }
 .btn-filters {
     position: absolute;
@@ -34,6 +37,7 @@
 }*/
 .filters h3 {
     margin-top: 15px;
+    /*margin-right: 5px;*/
     margin-left: 15%;
     margin-bottom: 0;
     font-weight: 600;
@@ -51,12 +55,25 @@
 }
 .appointment-type {
     height: 100%;
-    width: 25%;
+    width: 20%;
     border-right: 1px solid #DDDDDD;
 }
 .consultation-field {
     height: 100%;
-    width: 25%;
+    width: 20%;
+    border-right: 1px solid #DDDDDD;
+}
+
+.consultation-day {
+    height: 100%;
+    width: 20%;
+    border-right: 1px solid #DDDDDD;
+}
+
+.consultation-time {
+    height: 100%;
+    width: 20%;
+    border-right: 1px solid #DDDDDD;
 }
 
 .popover {
@@ -86,6 +103,27 @@
     margin: 0px;
 }
 
+.consultation-day .popover {
+    padding: 10px 0;
+    margin-left: -5px;
+    margin-top: 0%;
+}
+
+.consultation-day .popover ul{
+    margin: 0px;
+}
+
+.consultation-time .popover {
+    padding: 10px 0;
+    margin-left: -5px;
+    margin-top: 0%;
+}
+
+.consultation-time .popover ul{
+    margin: 0px;
+}
+
+
 .appointment-type .popover {
     margin-top: 0%;
 }
@@ -106,7 +144,9 @@
 }
 
 .consultation-field:hover .popover,
-.appointment-type:hover .popover {
+.appointment-type:hover .popover,
+.consultation-day:hover .popover,
+.consultation-time:hover .popover {
     visibility: visible;
 }
 
