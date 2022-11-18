@@ -28,13 +28,13 @@ classes = {"User": User,
 
 class DBstorage:
     """database storage"""
-    __engine = None
-    __session = None
+    engine = None
+    session = None
 
     def __init__(self):
         """initialization"""
         # {} {} {} {} - name, password, host, database name
-        self.__engine = create_engine("mysql+mysqldb://{}:{}@{}/{}".format(
+        self.engine = create_engine("mysql+mysqldb://{}:{}@{}/{}".format(
             os.environ.get('ARC_MYSQL_USER'),
             os.environ.get('ARC_MYSQL_PASSWORD'),
             os.environ.get('ARC_MYSQL_HOST'),
@@ -44,35 +44,44 @@ class DBstorage:
         """query the current database session and return objects
         depending on the class name"""
         dictionary = {}
-        for classes in classes:
+        for classe in classes:
             if cls is None or cls is classes[classe] or cls is classe:
-                objs = self.__session.query(classes[classe]).all()
+                objs = self.session.query(classes[classe]).all()
                 for obj in objs:
                     key = obj.__class__.__name__ + '.' + obj.id
                     dictionary[key] = obj
         return dictionary
 
+    # def return_first(self, cls=None, filter_value=None):
+    #    """query the current database session and return objects
+    #    depending on the class name"""
+    #   for classe in classes:
+    #        if cls is classes[classe] or cls is classe:
+    #            obj = self.__session.query(classes[classe]).
+    # filter_by(filter_value).first()
+    #            return obj
+
     def new(self, obj):
         """brand new instancs added"""
-        self.__session.add(obj)
+        self.session.add(obj)
 
     def save(self):
         """saves atm transactions"""
-        self.__session.commit()
+        self.session.commit()
 
     def delete(self, obj=None):
         """method places an instance into the Session’s
         list of objects to be marked as deleted"""
-        self.__session.delete(obj)
+        self.session.delete(obj)
         self.save()
 
     def reload(self):
         """refreshing objects or when ORM lazy load operations occur"""
-        Base.metadata.create_all(self.__engine)
-        self.__session = scoped_session(sessionmaker(
-            bind=self.__engine, expire_on_commit=False))
+        Base.metadata.create_all(self.engine)
+        self.session = scoped_session(sessionmaker(
+            bind=self.engine, expire_on_commit=False))
 
     def close(self):
         """ method is more like a “reset” back to the clean state
         and not as much like a “database close” method."""
-        self.__sesion.close()
+        self.sesion.close()

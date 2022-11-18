@@ -1,0 +1,77 @@
+
+.contact{
+    margin: 30px auto;
+    width: 1000px;
+}
+
+.contact .form-container {
+    /*background-color: whitesmoke;
+    list-style-type: none;
+    padding: 0;
+    border-radius: 3px;*/
+    border: 0.40rem solid #f8f9fa;
+    top: 10%;
+  }
+  .contact .form-group {
+    display: flex;
+    justify-content: flex-end;
+    padding: .5em;
+  }
+  .contact .form-group > label {
+    padding: .5em 1em .5em 0;
+    flex: 3;
+  }
+  .contact .form-group > input {
+    flex: 2;
+  }
+
+  .contact .form-group > textarea {
+    flex: 3;
+  }
+  .contact .form-group > input,
+  .contact .form-group > button {
+    padding: .5em;
+  }
+  .contact .form-group > button {
+   background: gray;
+   color: white;
+   border: 0;
+  }
+ @media screen and (min-width: 768px) {
+    .contact .form-group > input {
+    	flex: 3;  
+   }
+  }
+ @media screen and (min-width: 992px) {
+    .contact .form-group > input {
+    	flex: 4;  
+   }
+  }
+ @media screen and (min-width: 1200px) {
+    .contact .form-group > input {
+    	flex: 5;  
+   }
+  }
+
+  .contact .form-container p {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.contact .form-btn {
+    text-align: center;
+}
+
+.contact .btn{
+    padding: 0.6rem 1.2rem;
+    background: #3cab72;
+    border: 2px solid #f5f1f2;
+  }
+.contact .btn-primary:hover {
+  
+      
+      background-color: #0f502e;
+      border-color: #efebec;
+        transition: .3s;
+  
+}

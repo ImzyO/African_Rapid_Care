@@ -1,0 +1,196 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*
+  ========================================
+  Custom styles
+  ========================================
+*/
+.header-flex-container {
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+    /* flex-wrap: wrap; */
+    background: white;
+    height: 80px; 
+    width: 100%;
+    border-bottom: 2px solid #3cab72;
+    margin: auto;
+}
+
+@media (min-width: 960px) {
+    .main-header .header-flex-container {
+        justify-content: space-between;
+    }
+}
+
+.header-flex {
+    height: 80px; 
+}
+.header-flex-logo {
+    /*border: 1px solid black;*/
+    margin-left: 40px;
+}
+.header-flex-logo img {
+    width: 100%;
+    height: 100%;   
+}
+
+.header-flex-nav {
+    flex: 6;
+    /*border: 1px solid black;*/
+    display: block;
+    align-items: center;
+}
+
+.header-flex-nav ul {
+    display: flex; /*display: flex; either this of li display inline */
+    /*list-style-type:none;*/
+    justify-content: center;
+}
+
+.header-flex-nav li {
+   /* display: inline; */
+   padding: 5px 5px;
+   margin: 25px 3px;
+}
+
+.header-flex-nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px
+}
+
+.header-flex-nav a:hover {
+    color: #3cab72;
+}
+
+.header-flex-nav a:active{
+    text-decoration: none;
+    color: #3cab72;
+    font-size: 20px
+}
+
+.header-flex-user {
+    /*border: 1px solid black;*/
+   /* margin-right: 20px;
+    /*align-self: flex-end;*/
+    flex: 1;
+}
+
+.header-flex-user img {
+    /* when paragraph */
+    width: 70px;
+    height: 10%;
+    /*width: 90%;
+    height: 90%;*/
+    margin-top: 3px;
+}
+
+.center-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 50%;
+  }
+
+/* Dropdown Button */
+.dropbtn {
+    border: none;
+    cursor: pointer;
+  }
+
+.dropdown {
+    position: relative;
+    float: right; /* to align dropdown to right */
+    display: inline-block; /* ignore if float is not None */
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute; /* change from absolute */
+    background-color: #f1f1f1;
+    min-width: 160px;
+    /*width: 100%;*/
+    right: 0;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    /*right: 0; /*right align dropdown */
+}
+
+.dropdown-content i {
+    padding: 5px 10px;
+}
+
+  /* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+    background-color: #3cab72;
+    color: white;
+}
+
+/* Show the dropdown menu via JS */
+.show {display:block;}

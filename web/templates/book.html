@@ -1,0 +1,104 @@
+{% extends "index.html" %}{% block title %}Book an appointment{% endblock %}
+{% block content %}
+<!-- Filtering to be added as future feature of the app -->
+<section id="filters" class="filters">
+    <div class="appointment-type">
+        <h3>Appointment Type</h3>
+		<h4>&nbsp;</h4>
+		<div class="popover">
+			<ul>
+                <li><input type="checkbox" data-id="" data-name="">Virtual Appointment</li>
+				<li><input type="checkbox" data-id="" data-name="">Physical Appointment</li>		
+			</ul>
+		</div>
+    </div>
+    <div class="consultation-field">
+        <h3>Field</h3>
+	    <h4>&nbsp;</h4>
+        <div class="popover">
+			<ul>
+                <li><input type="checkbox" data-id="" data-name="">Physical health</li>
+				<li><input type="checkbox" data-id="" data-name="">Mental Health</li>		
+			</ul>
+		</div>
+    </div>
+    <button class="btn-filters">
+        Search
+    </button>
+</section>
+<section id="book" class="doctors">
+    <h1>Available doctors</h1>
+    <div class="flex-doctors">
+        <article>
+            <div class="title_box">
+                <div class="photo"><img class="center-img" src="../static/images/user.png" alt="Doctor"></div>
+                <div class="doctor-identity">
+                    <h2><strong>Dr. John Doe</strong></h2>
+                    <h3>Psychologist</h3>
+                    <h3><span>1 km</span> from you</h3>
+                </div>
+            </div>
+            <div class="information">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptas assumenda at recusandae rem fuga harum unde corrupti facere numquam eos neque omnis, voluptate quas, cumque, fugiat vitae libero. Reiciendis suscipit obcaecati commodi neque ipsam aspernatur quibusdam dicta minima quisquam numquam? Corporis facilis, dolores voluptate animi magni minus possimus officia quo inventore saepe assumenda perspiciatis unde reprehenderit dolorem cumque sint iste eaque. Corporis illum voluptatum doloribus facere adipisci corrupti molestiae cum aperiam, dolorum dicta odit autem blanditiis. Deleniti minima tempore temporibus excepturi voluptates, perspiciatis nam eligendi! Illo temporibus nulla culpa non aliquid excepturi, laboriosam est quam accusantium quia nobis quos!</p>
+            </div>
+            <button class="btn-book center-img">Book</button>
+        </article>
+        <article>
+            <div class="title_box">
+                <div class="photo"><img class="center-img" src="../static/images/user.png" alt="Doctor"></div>
+                <div class="doctor-identity">
+                    <h2><strong>Dr. John Doe</strong></h2>
+                    <h3>Psychologist</h3>
+                    <h3><span>1 km</span> from you</h3>
+                </div>
+            </div>
+            <div class="information">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptas assumenda at recusandae rem fuga harum unde corrupti facere numquam eos neque omnis, voluptate quas, cumque, fugiat vitae libero. Reiciendis suscipit obcaecati commodi neque ipsam aspernatur quibusdam dicta minima quisquam numquam? Corporis facilis, dolores voluptate animi magni minus possimus officia quo inventore saepe assumenda perspiciatis unde reprehenderit dolorem cumque sint iste eaque. Corporis illum voluptatum doloribus facere adipisci corrupti molestiae cum aperiam, dolorum dicta odit autem blanditiis. Deleniti minima tempore temporibus excepturi voluptates, perspiciatis nam eligendi! Illo temporibus nulla culpa non aliquid excepturi, laboriosam est quam accusantium quia nobis quos!</p>
+            </div>
+            <button class="btn-book center-img">Book</button>
+        </article>
+        <article>
+            <div class="title_box">
+                <div class="photo"><img class="center-img" src="../static/images/user.png" alt="Doctor"></div>
+                <div class="doctor-identity">
+                    <h2><strong>Dr. John Doe</strong></h2>
+                    <h3>Psychologist</h3>
+                    <h3><span>1 km</span> from you</h3>
+                </div>
+            </div>
+            <div class="information">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptas assumenda at recusandae rem fuga harum unde corrupti facere numquam eos neque omnis, voluptate quas, cumque, fugiat vitae libero. Reiciendis suscipit obcaecati commodi neque ipsam aspernatur quibusdam dicta minima quisquam numquam? Corporis facilis, dolores voluptate animi magni minus possimus officia quo inventore saepe assumenda perspiciatis unde reprehenderit dolorem cumque sint iste eaque. Corporis illum voluptatum doloribus facere adipisci corrupti molestiae cum aperiam, dolorum dicta odit autem blanditiis. Deleniti minima tempore temporibus excepturi voluptates, perspiciatis nam eligendi! Illo temporibus nulla culpa non aliquid excepturi, laboriosam est quam accusantium quia nobis quos!</p>
+            </div>
+            <button class="btn-book center-img">Book</button>
+        </article>
+        <article>
+            <div class="title_box">
+                <div class="photo"><img class="center-img" src="../static/images/user.png" alt="Doctor"></div>
+                <div class="doctor-identity">
+                    <h2><strong>Dr. John Doe</strong></h2>
+                    <h3>Psychologist</h3>
+                    <h3><span>1 km</span> from you</h3>
+                </div>
+            </div>
+            <div class="information">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptas assumenda at recusandae rem fuga harum unde corrupti facere numquam eos neque omnis, voluptate quas, cumque, fugiat vitae libero. Reiciendis suscipit obcaecati commodi neque ipsam aspernatur quibusdam dicta minima quisquam numquam? Corporis facilis, dolores voluptate animi magni minus possimus officia quo inventore saepe assumenda perspiciatis unde reprehenderit dolorem cumque sint iste eaque. Corporis illum voluptatum doloribus facere adipisci corrupti molestiae cum aperiam, dolorum dicta odit autem blanditiis. Deleniti minima tempore temporibus excepturi voluptates, perspiciatis nam eligendi! Illo temporibus nulla culpa non aliquid excepturi, laboriosam est quam accusantium quia nobis quos!</p>
+            </div>
+            <button class="btn-book center-img">Book</button>
+        </article>
+        <article>
+            <div class="title_box">
+                <div class="photo"><img class="center-img" src="../static/images/user.png" alt="Doctor"></div>
+                <div class="doctor-identity">
+                    <h2><strong>Dr. John Doe</strong></h2>
+                    <h3>Psychologist</h3>
+                    <h3><span>1 km</span> from you</h3>
+                </div>
+            </div>
+            <div class="information">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptas assumenda at recusandae rem fuga harum unde corrupti facere numquam eos neque omnis, voluptate quas, cumque, fugiat vitae libero. Reiciendis suscipit obcaecati commodi neque ipsam aspernatur quibusdam dicta minima quisquam numquam? Corporis facilis, dolores voluptate animi magni minus possimus officia quo inventore saepe assumenda perspiciatis unde reprehenderit dolorem cumque sint iste eaque. Corporis illum voluptatum doloribus facere adipisci corrupti molestiae cum aperiam, dolorum dicta odit autem blanditiis. Deleniti minima tempore temporibus excepturi voluptates, perspiciatis nam eligendi! Illo temporibus nulla culpa non aliquid excepturi, laboriosam est quam accusantium quia nobis quos!</p>
+            </div>
+            <button class="btn-book center-img">Book</button>
+        </article>
+    </div>
+</section>
+{% endblock %}

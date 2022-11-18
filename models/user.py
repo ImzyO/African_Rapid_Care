@@ -11,9 +11,10 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, DateTime
 from sqlalchemy.orm import relationship
 import hashlib
+from flask_login import UserMixin
 
 
-class User(BaseModel, Base):
+class User(BaseModel, Base, UserMixin):
     """user class with attributes of user"""
     """user relates to doctor and patient modules via Foregin keys"""
 

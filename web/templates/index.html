@@ -1,38 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    
+    <!-- Bootstrap CSS -->
+    <!--
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    -->
     <link rel="stylesheet" type="text/css" href="../static/styles/header.css">
     <link rel="stylesheet" type="text/css" href="../static/styles/footer.css">
-    <link rel="icon" href="">
+    <link rel="stylesheet" type="text/css" href="../static/styles/common.css">
+    <link rel="stylesheet" type="text/css" href="../static/styles/doctors.css">
+    <link rel="stylesheet" type="text/css" href="../static/styles/contact.css">
+    <link rel="stylesheet" type="text/css" href="../static/styles/filters.css">
+    <link rel="icon" href="../static/images/icon.png">
     <script src="https://kit.fontawesome.com/7d6fcd6a2c.js" crossorigin="anonymous"></script>
-    <title>Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Import JavaScript static/scripts/index.js -->
+    <!-- -->
+		<script type="text/javascript" src="../static/scripts/index.js"></script>
+    <!-- -->
+    <!-- Import JavaScript static/scripts/index.js in the jinja way-->
+    <!-- -->
+		<script type="text/javascript" src="{{ url_for('static', filename='scripts/index.js')}}"></script>
+    <!-- -->
+    <!-- block title to ve overridden-->
+    <title>{% block title %}African Rapid Care{% endblock %}</title>
     </head>
     <body>
-      <header>
-        <nav id="nav">
-          <div class="logo"></div>
-          <div class="pages">
-            <ul>
-              <li><a href="">My Appointments</a></li>
-              <li><a href="">Book Appointment</a></li>
-              <li><a href="">Store</a></li>
-              <li><a href="">Login</a></li>
-              <li><a href="">Sign Up</a></li>
+      <header class="main-header">
+        <div class="header-flex-container">
+          <div class="header-flex header-flex-logo">
+            <a href="/"><img src="../static/images/logo.png" alt="Logo" class="center-img"></a>
+          </div>
+          <nav class="main-nav header-flex header-flex-nav" id="nav">
+            <ul class="nav-list">
+              {% if the_user.is_authenticated %}
+              <li><a data-active="appointments" href="/appointments">My Appointments</a></li>
+              <li><a data-active="book" href="/book">Book Appointment</a></li>
+              <li><a data-active="store" href="/store">Store</a></li>
+              {% else %}
+              <li><a data-active="login" href="/login">Login</a></li>
+              <li><a data-active="sign-up" href="/sign-up">Sign Up</a></li>
+              {% endif %}
             </ul>
+          </nav>
+          {% if the_user.is_authenticated %}
+          <div class="header-flex header-flex-user dropdown">
+            
+            <p onclick="profile_options()"><img class="center-img dropbtn" src="../static/images/user.png"></p>
+            <!--
+            <a href="#" onclick="profile_options()"><img class="center-img dropbtn" src="/web/static/images/user.png"></a>
+            -->
+            <!-- <button > <img c src="/web/static/images/user.png"></button> -->
+            <div id="myDropdown" class="dropdown-content">
+              <a href="/account"><i class="fa-solid fa-user"></i>Account</a>
+              <a href="/settings"><i class="fa-solid fa-screwdriver-wrench"></i>Settings</a>
+              <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+            </div>
           </div>
-          <div>
-            <i class="fa-thin fa-user"></i>
-          </div>
-        </nav>
+          {% endif %}
+        </div>
+          
       </header>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          {% if category == 'error' %}
+            <div id="hideMeAfter5Seconds" class="alert alter-danger" role="alert">
+              {{ message }}
+              <!--
+              <button type="button"><span>&times;</span></button>
+              -->
+            </div>
+          {% else %}
+            <div id="hideMeAfter5Seconds" class="alert alter-success" role="alert">
+              {{ message }}
+              <!--
+              <button type="button"><span>&times;</span></button>
+              -->
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif%}
+      {% endwith %}
+
       <div class="container">
-       <img src="https://unsplash.com/photos/L8tWZT4CcVQ?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink" alt="" width="100%" height="1920" >
+        {% block content %}
+        <div class="container-index">
+          <img src="../static/images/landing.jpg" alt="" width="100%" height="100%"">
+          <div class="welcome">
+            <h1>Welcome to ARC</h1>
+            <h2>Find your doctor right next door!</h2>
+          </div>
+        </div>
+        {% endblock %}
       </div>
       <footer>
-        <div>About</div>
-        <div>Contact</div>
-        <div>Help</div>
+        <div class="footer-flex-container">
+          <nav class="footer-nav footer-flex footer-flex-nav">
+            <ul class="nav-list">
+              <li><a data-active="about" href="/about">About</a></li>
+              <li><a data-active="contact" href="/contact">Contact</a></li>
+              <li><a data-active="help" href="/help">Help</a></li>
+              <li><a data-active="terms-policy" href="/terms-privacy">Terms & Privacy</a></li>
+              <li>&#169; 2022 African Rapid Care</li>
+            </ul>
+          </nav>
+          <div class="footer-flex footer-flex-socials">
+            <ul>
+              <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+            </ul>
+          </div>
+        </div>
       </footer>
-    </body>
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      -->
+  </body>
 </html>
