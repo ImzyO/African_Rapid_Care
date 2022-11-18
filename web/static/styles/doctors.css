@@ -41,7 +41,8 @@ button:hover {
 
 .doctors h1, .sign-up h1, .login h1, .store h1, .appointments h1,
 .account h1, .contact h1, .help h1, .settings h1,
-.about h1, .terms-privacy h1{
+.about h1, .terms-privacy h1,
+.appointments h1{
     display: block;
     width: 100%;
     /*border: 2px solid red;*/
