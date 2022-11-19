@@ -92,8 +92,8 @@ DROP TABLE IF EXISTS `reviews`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `reviews` (
     `id` varchar(60) NOT NULL,
---    `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
---    `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `patient_id` varchar(60) NOT NULL,
     `doctor_id` varchar(60) NOT NULL,
     `review_info` varchar(1024) NOT NULL,

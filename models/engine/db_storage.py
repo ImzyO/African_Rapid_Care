@@ -52,15 +52,6 @@ class DBstorage:
                     dictionary[key] = obj
         return dictionary
 
-    # def return_first(self, cls=None, filter_value=None):
-    #    """query the current database session and return objects
-    #    depending on the class name"""
-    #   for classe in classes:
-    #        if cls is classes[classe] or cls is classe:
-    #            obj = self.__session.query(classes[classe]).
-    # filter_by(filter_value).first()
-    #            return obj
-
     def new(self, obj):
         """brand new instancs added"""
         self.session.add(obj)
@@ -85,3 +76,40 @@ class DBstorage:
         """ method is more like a “reset” back to the clean state
         and not as much like a “database close” method."""
         self.sesion.close()
+
+    def get_byID(self, cls, id):
+        """returns an object based on class name and ID"""
+        if cls not in classes.values():
+            return None
+
+        all_cls = models.database_storage.all(cls)
+        for value in all_cls.values():
+            if (value.id == id):
+                return value
+
+        return None
+
+    def get_user_byEmail(self, cls, email):
+        """returns a User object based on email"""
+        if cls is not classes['User']:
+            return None
+
+        all_cls = models.database_storage.all(cls)
+        for value in all_cls.values():
+            if (value.email == email):
+                return value
+
+        return None
+
+    def count(self, cls=None):
+        """count the number of objects in storage"""
+        all_class = classes.values()
+
+        if not cls:
+            count = 0
+            for clas in all_class:
+                count += len(models.database_storage.all(clas).values())
+        else:
+            count = len(models.database_storage.all(cls).values())
+
+        return count

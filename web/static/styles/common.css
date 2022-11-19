@@ -7,8 +7,9 @@ body {
 }
 
 body .container {
-    /* margin:30px auto;*/
-    /*margin: auto 50px;*/
+    margin:30px 30px;
+    /* margin: auto 50px; */
+  
 }
 
 /* home page */
@@ -44,6 +45,12 @@ body .container {
     margin: 30px auto;
     width: 500px;
 }
+
+.bookingf {
+  margin: 30px auto;
+  width: 100%;
+}
+
 .form-container {
     /*background-color: whitesmoke;
     list-style-type: none;
@@ -52,6 +59,7 @@ body .container {
     border: 0.40rem solid #f8f9fa;
     top: 10%;
   }
+
   .form-group {
     display: flex;
     justify-content: flex-end;
@@ -108,23 +116,130 @@ body .container {
     text-align: center;
 }
 
-.form-btn {
-    text-align: center;
+/* for booking page */
+.booking-form-container {
+  border: 0.40rem solid #f8f9fa;
+  /*border: 7px solid blue;*/
+  margin: 30px 50px;
+  display: flex;
+  flex-direction: column;
 }
+
+.booking-form-fieldset {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /*border: 5px solid green"*/
+}
+
+.booking-form-container input{
+  margin: .4rem;
+}
+
+.booking-form-container legend{
+  font-weight: bolder;
+}
+
+.booking-form-container-item {
+  margin: 20px auto;
+  padding: 10px 10px;
+}
+
+.form-buttons{
+  display: flex;
+  justify-content: center;
+  /*border: 5px solid green*/
+}
+
+.btn-booking {
+  margin: 20px 20px;
+}
+
+.booking-form-group-textarea {
+  /*display: grid;
+  grid-template-rows: 50px 100px;
+  
+  border: 5px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  resize: vertical;
+  overflow: auto;
+}
+/*
+.grid-item-1 {
+  grid-row: 1 / 2;
+  text-align: center;
+  border: 2px solid red;
+}
+
+.booking-form-text {
+  border: 2px solid green;
+  grid-row: 2 / -1;
+  width:70%;
+  height:100px;
+} 
+*/
+.booking-form-text {
+  /*border: 2px solid green;*/
+  width: 40%;
+  height:100px;
+} 
+
+textarea {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.grid-item-1 {
+  text-align: center;
+  /*border: 2px solid red;*/
+  margin: 10px auto;
+}
+/* end */
+/*.form-btn {
+    text-align: center;
+}*/
+
+.btn-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 20%;
+  }
 
 .btn{
     padding: 0.6rem 1.2rem;
     background: #3cab72;
     border: 2px solid #f5f1f2;
+    text-align: center;
   }
+
   .btn-primary:hover {
-  
+
       
       background-color: #0f502e;
       border-color: #efebec;
         transition: .3s;
   
   }
+
+  btn{
+    padding: 0.6rem 1.2rem;
+    background: #831a1a;
+    border: 2px solid #f5f1f2;
+  }
+  .btn-primary2:hover {
+  
+      
+    background-color: #982f44;
+    border-color: #efebec;
+      transition: .3s;
+
+}
 /*
 .btn{
     padding: 0.6rem 1.2rem;

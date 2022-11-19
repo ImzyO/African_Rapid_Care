@@ -27,6 +27,12 @@ def book():
     """go to book appointment page"""
     return render_template('book.html', the_user=current_user)
 
+@views.route('/booking', strict_slashes=False)
+@login_required
+def booking():
+    """go to booking appointment page"""
+    return render_template('booking.html', the_user=current_user)
+
 @views.route('/store', strict_slashes=False)
 @login_required
 def store():
