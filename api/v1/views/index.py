@@ -3,16 +3,10 @@
 from api.v1.views import app_views
 from flask import jsonify
 from models import database_storage
-from models.user import User
 from models.patient import Patient
 from models.doctor import Doctor
-from models.specialization import Specialization
-from models.review import Review
-from models.hospital_affiliation import HospitalAffiliation
 from models.office import Office
-from models.office_hours import OfficeHours
 from models.appointment import Appointment
-from models.appointment_status import AppointmentStatus
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)

@@ -7,11 +7,11 @@ from flask import jsonify, abort, make_response, request
 from models import database_storage
 from models.user import Patient
 from api.v1.views import app_views
-from flasgger.utils import swag_from
+# from flasgger.utils import swag_from
 
 
 @app_views.route('/patients', methods=['GET'], strict_slashes=False)
-@swag_from('documentation/patient/get_patient.yml', methods=['GET'])
+# @swag_from('documentation/patient/get_patient.yml', methods=['GET'])
 def get_patients():
     """
     Retrieves the list of all Patient objects
@@ -26,7 +26,7 @@ def get_patients():
 
 
 @app_views.route('/patients/<patient_id>', methods=['GET'], strict_slashes=False)
-@swag_from('documentation/patient/get_id_patient.yml', methods=['get'])
+# @swag_from('documentation/patient/get_id_patient.yml', methods=['get'])
 def get_patient(patient_id):
     """ Retrieves a specific Patient object """
     patient = database_storage.get(Patient, patient_id)
@@ -38,7 +38,7 @@ def get_patient(patient_id):
 
 @app_views.route('/patients/<patient_id>', methods=['DELETE'],
                  strict_slashes=False)
-@swag_from('documentation/patient/delete_patient.yml', methods=['DELETE'])
+# @swag_from('documentation/patient/delete_patient.yml', methods=['DELETE'])
 def delete_user(patient_id):
     """Deletes a Patient Object"""
 
@@ -54,7 +54,7 @@ def delete_user(patient_id):
 
 
 @app_views.route('/patients', methods=['POST'], strict_slashes=False)
-@swag_from('documentation/patient/post_patient.yml', methods=['POST'])
+# @swag_from('documentation/patient/post_patient.yml', methods=['POST'])
 def post_patient():
     """Creates a Patient"""
     if not request.get_json():
@@ -70,7 +70,7 @@ def post_patient():
 
 
 @app_views.route('/patients/<patient_id>', methods=['PUT'], strict_slashes=False)
-@swag_from('documentation/patient/put_patient.yml', methods=['PUT'])
+# @swag_from('documentation/patient/put_patient.yml', methods=['PUT'])
 def put_patient(patient_id):
     """Updates a Patient"""
     patient = database_storage.get(Patient, patient_id)

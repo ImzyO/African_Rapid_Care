@@ -23,8 +23,8 @@ def not_found(error):
     return make_response(jsonify({'error': "Not found"}), 404)
 
 if __name__ == "__main__":
-    host = environ.get("ARC_MYSQL_HOST")
-    port = environ.get("ARC_MYSQL_PORT")
+    host = environ.get("ARC_HOST")
+    port = environ.get("ARC_PORT")
 
     if not host:
         host = "0.0.0.0"

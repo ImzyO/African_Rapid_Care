@@ -7,11 +7,11 @@ from flask import jsonify, abort, make_response, request
 from models import database_storage
 from models.user import Doctor
 from api.v1.views import app_views
-from flasgger.utils import swag_from
+# from flasgger.utils import swag_from
 
 
 @app_views.route('/doctors', methods=['GET'], strict_slashes=False)
-@swag_from('documentation/doctor/get_doctor.yml', methods=['GET'])
+# @swag_from('documentation/doctor/get_doctor.yml', methods=['GET'])
 def get_doctors():
     """
     Retrieves the list of all Doctor objects
@@ -26,7 +26,7 @@ def get_doctors():
 
 
 @app_views.route('/doctors/<doctor_id>', methods=['GET'], strict_slashes=False)
-@swag_from('documentation/doctor/get_id_doctor.yml', methods=['get'])
+# @swag_from('documentation/doctor/get_id_doctor.yml', methods=['get'])
 def get_doctor(user_id):
     """ Retrieves a specific Doctor object """
     doctor = database_storage.get(Doctor, doctor_id)
@@ -38,7 +38,7 @@ def get_doctor(user_id):
 
 @app_views.route('/doctors/<doctor_id>', methods=['DELETE'],
                  strict_slashes=False)
-@swag_from('documentation/doctor/delete_doctor.yml', methods=['DELETE'])
+# @swag_from('documentation/doctor/delete_doctor.yml', methods=['DELETE'])
 def delete_doctor(doctor_id):
     """Deletes a Doctor Object"""
 
@@ -54,7 +54,7 @@ def delete_doctor(doctor_id):
 
 
 @app_views.route('/doctors', methods=['POST'], strict_slashes=False)
-@swag_from('documentation/doctor/post_doctor.yml', methods=['POST'])
+# @swag_from('documentation/doctor/post_doctor.yml', methods=['POST'])
 def post_doctor():
     """Creates a Doctor"""
     if not request.get_json():
@@ -70,7 +70,7 @@ def post_doctor():
 
 
 @app_views.route('/doctors/<doctor_id>', methods=['PUT'], strict_slashes=False)
-@swag_from('documentation/doctor/put_doctor.yml', methods=['PUT'])
+# @swag_from('documentation/doctor/put_doctor.yml', methods=['PUT'])
 def put_doctor(doctor_id):
     """Updates a Doctor"""
     doctor = database_storage.get(Doctor, doctor_id)
