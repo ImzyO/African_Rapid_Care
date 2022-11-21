@@ -29,7 +29,7 @@ def get_users():
 @swag_from('documentation/user/get_id_user.yml', methods=['get'])
 def get_user(user_id):
     """ Retrieves a specific User object """
-    state = database_storage.get(User, user_id)
+    user = database_storage.get(User, user_id)
     if not user:
         abort(404)
 
@@ -75,7 +75,7 @@ def put_user(state_id):
     """Updates a User"""
     user = database_storage.get(User, user_id)
 
-    if not state:
+    if not user:
         abort(404)
 
     if not request.get_json():
