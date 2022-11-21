@@ -23,7 +23,8 @@ class HospitalAffiliation(BaseModel, Base):
 
     offices = relationship('Office',
                            backref='hospitalaffiliation',
-                           cascade='delete')
+                           # cascade='delete'
+                           cascade="all, delete, delete-orphan")
 
     def __init__(self, *args, **kwargs):
         """initialization"""

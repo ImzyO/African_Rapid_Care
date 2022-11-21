@@ -32,14 +32,20 @@ def create_app():
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(footer_views, url_prefix='/')
     
+    # we create and initializa the Flask login extension
     login_manager = LoginManager()
     # where to go if we are not logged in
     login_manager.login_view = 'auth.login'
+    # link login_manager instance to the app
     login_manager.init_app(app)
     
     # telling flask how we load a user
     @login_manager.user_loader
     def load_user(id):
+        """
+        Function that links database with Flask storing
+        the user_ID in a session
+        """ 
         # return User.query.get(int(id))
         return database_storage.session.query(User).get(id)
     

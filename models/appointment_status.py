@@ -17,7 +17,8 @@ class AppointmentStatus(BaseModel, Base):
 
     appointments = relationship('Appointment',
                                 backref='appointmentstatus',
-                                cascade='delete')
+                                # cascade='delete',
+                                cascade="all, delete, delete-orphan")
 
     def __init__(self, *args, **kwargs):
         """initialization"""

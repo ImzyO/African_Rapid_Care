@@ -55,7 +55,9 @@ class Doctor(User):
     # birthdate = Column(DateTime, nullable=False)
 
     # one to many relationship between doctors and reviews
-    reviews = relationship('Review', backref='doctor', cascade='delete')
+    reviews = relationship('Review', backref='doctor',
+                           # cascade='delete',
+                           cascade="all, delete, delete-orphan")
 
     # many to many between doctors and specializations
     # through doctor_specialization
@@ -65,10 +67,12 @@ class Doctor(User):
                                    # backref is pseudo column
                                    # created in Specialization
                                    backref='doctor_specializations')
+    # cascade = "all, delete, delete-orphan")
     # one to many relationship between doctors and hospital_affiliation
     hospitals = relationship('HospitalAffiliation',
                              backref="doctor",
-                             cascade='delete')
+                             # cascade='delete',
+                             cascade="all, delete, delete-orphan")
 
     def __init__(self, *args, **kwargs):
         """initialization"""

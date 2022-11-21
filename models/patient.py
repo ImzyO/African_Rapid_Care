@@ -46,10 +46,15 @@ class Patient(User):
     appointments = relationship('Appointment',
                                 backref='patient',
                                 # primaryjoin="Appointment.patient_id==Patient.id",
-                                cascade='delete')
+                                # cascade='delete'
+                                # add cascade
+                                cascade="all, delete, delete-orphan")
 
     # one to many relationship between patient and review
-    reviews = relationship('Review', backref='patient', cascade='delete')
+    reviews = relationship('Review',
+                           backref='patient',
+                           # cascade='delete',
+                           cascade="all, delete, delete-orphan")
 
     def __init__(self, *args, **kwargs):
         """initialization"""
@@ -57,8 +62,8 @@ class Patient(User):
 
     def __setattr__(self, name, value):
         """sets password, latitude and longitude attributes"""
-        if name == "password":
-            value = hashlib.sha512(value.encode()).hexdigest()
+        # if name == "password":
+        #    value = hashlib.sha512(value.encode()).hexdigest()
         # g = geocoder.ip('me')
         # gcode = g.latlng
         if name == "latitude":

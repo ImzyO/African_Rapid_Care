@@ -60,6 +60,12 @@ class DBstorage:
         """saves atm transactions"""
         self.session.commit()
 
+    def rollback_session(self):
+        """
+            rollsback a session in the event of an exception
+        """
+        self.session.rollback()
+
     def delete(self, obj=None):
         """method places an instance into the Session’s
         list of objects to be marked as deleted"""
@@ -75,7 +81,7 @@ class DBstorage:
     def close(self):
         """ method is more like a “reset” back to the clean state
         and not as much like a “database close” method."""
-        self.sesion.close()
+        self.session.close()
 
     def get_byID(self, cls, id):
         """returns an object based on class name and ID"""

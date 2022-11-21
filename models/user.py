@@ -34,12 +34,23 @@ class User(BaseModel, Base, UserMixin):
         'polymorphic_on': type
     }
 
+    # add cascade
+    # default: cascade is false with attributes (save-update, merge)
     patient = relationship('Patient',
                            # primaryjoin="Patient.user_id==User.id",
+                           # ADD CASCADE
+                           # "all, delete-orphan" to indicate that
+                           # related objects should follow along
+                           # with the parent object in all cases,
+                           # and be deleted when de-associated
+                           # add cascade
+                           cascade="all, delete, delete-orphan",
                            backref="user",
                            uselist=False)
     doctor = relationship('Doctor',
                           # primaryjoin="Doctor.userd_id==User.id",
+                          # add cascade
+                          cascade="all, delete, delete-orphan",
                           backref="user",
                           uselist=False)
 

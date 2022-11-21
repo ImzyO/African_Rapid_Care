@@ -28,10 +28,12 @@ class Office(BaseModel, Base):
 
     office_hours = relationship('OfficeHours',
                                 backref='office',
-                                cascade='delete')
+                                # cascade='delete'
+                                cascade="all, delete, delete-orphan")
     appointments = relationship('Appointment',
                                 backref='office',
-                                cascade='delete')
+                                # cascade='delete'
+                                cascade="all, delete, delete-orphan")
 
     def __init__(self, *args, **kwargs):
         """initialization"""
