@@ -9,6 +9,7 @@ from models import patient
 Patient = patient.Patient
 from models import database_storage
 import hashlib
+import uuid
 import geocoder
 from flask_login import login_user, login_required, logout_user, current_user
 
@@ -32,7 +33,8 @@ def login():
                 flash("Incorrect password!", category="error")
         else:
             flash("Email doesn't exist.", category="error")
-    return render_template('login.html', the_user=current_user)
+    return render_template('login.html', the_user=current_user,
+                           cache_id=uuid.uuid4())
 
 @auth.route('/logout', strict_slashes=False)
 @login_required 
@@ -41,7 +43,8 @@ def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
-@auth.route('/sign-up', methods=['GET', 'POST'], strict_slashes=False)
+@auth.route('/sign-up', methods=['GET', 'POST'],
+            strict_slashes=False)
 def sign_up():
     """got to sign-up page"""
     if request.method == "POST":
@@ -105,16 +108,19 @@ def sign_up():
             login_user(the_user, remember=True) 
             flash("Account created!", category='success')
             return redirect(url_for('views.appointments'))
-    return render_template('sign-up.html', the_user=current_user)
+    return render_template('sign-up.html', the_user=current_user,
+                           cache_id=uuid.uuid4())
 
 @auth.route('/settings', strict_slashes=False)
 @login_required
 def settings():
     """got to settings page"""
-    return render_template('settings.html', the_user=current_user)
+    return render_template('settings.html', the_user=current_user,
+                           cache_id=uuid.uuid4())
 
 @auth.route('/account', strict_slashes=False)
 @login_required
 def account():
     """got to account page"""
-    return render_template('account.html', the_user=current_user)
+    return render_template('account.html', the_user=current_user,
+                           cache_id=uuid.uuid4())
