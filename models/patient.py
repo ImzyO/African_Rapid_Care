@@ -56,20 +56,26 @@ class Patient(User):
                            # cascade='delete',
                            cascade="all, delete, delete-orphan")
 
+    # one to many relationship between patient and distance
+    distances = relationship('Distance',
+                             backref='patient',
+                             # cascade='delete',
+                             cascade="all, delete, delete-orphan")
+
     def __init__(self, *args, **kwargs):
         """initialization"""
         super().__init__(*args, **kwargs)
 
-    def __setattr__(self, name, value):
-        """sets password, latitude and longitude attributes"""
+    # def __setattr__(self, name, value):
+    #    """sets password, latitude and longitude attributes"""
         # if name == "password":
         #    value = hashlib.sha512(value.encode()).hexdigest()
         # g = geocoder.ip('me')
         # gcode = g.latlng
-        if name == "latitude":
-            # value = g.latlng[0]
-            value = 1.656898
-        if name == "longitude":
-            # value = g.latlng[1]
-            value = 1.65987
-        super().__setattr__(name, value)
+    #    if name == "latitude":
+    #         value = g.latlng[0]
+    #        value = 1.656898
+    #    if name == "longitude":
+    #         value = g.latlng[1]
+    #        value = 1.65987
+    #    super().__setattr__(name, value)

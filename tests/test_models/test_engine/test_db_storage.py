@@ -18,6 +18,7 @@ from models.office import Office
 from models.office_hours import OfficeHours
 from models.appointment import Appointment
 from models.appointment_status import AppointmentStatus
+from models.distance import Distance
 import os
 import pep8
 import unittest
@@ -29,7 +30,8 @@ classes = {"Patient": Patient, "Doctor": Doctor,
            "HospitalAffiliation": HospitalAffiliation,
            "Office": Office, "OfficeHours": OfficeHours,
            "Appointment": Appointment,
-           "AppointmentStatus": AppointmentStatus}
+           "AppointmentStatus": AppointmentStatus,
+           "Distance": Distance}
 
 
 class TestDBstorageDocs(unittest.TestCase):

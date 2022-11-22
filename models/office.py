@@ -35,6 +35,12 @@ class Office(BaseModel, Base):
                                 # cascade='delete'
                                 cascade="all, delete, delete-orphan")
 
+    # one to many relationship between office and distance
+    distances = relationship('Distance',
+                             backref='office',
+                             # cascade='delete',
+                             cascade="all, delete, delete-orphan")
+
     def __init__(self, *args, **kwargs):
         """initialization"""
         super().__init__(*args, **kwargs)

@@ -16,6 +16,7 @@ from models.office import Office
 from models.office_hours import OfficeHours
 from models.appointment import Appointment
 from models.appointment_status import AppointmentStatus
+from models.distance import Distance
 
 classes = {"User": User,
            "Patient": Patient, "Doctor": Doctor,
@@ -23,7 +24,8 @@ classes = {"User": User,
            "HospitalAffiliation": HospitalAffiliation,
            "Office": Office, "OfficeHours": OfficeHours,
            "Appointment": Appointment,
-           "AppointmentStatus": AppointmentStatus}
+           "AppointmentStatus": AppointmentStatus,
+           "Distance": Distance}
 
 
 class DBstorage:

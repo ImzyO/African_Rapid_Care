@@ -5,8 +5,11 @@ from flask import Blueprint, render_template
 from flask import request, flash, redirect, url_for
 from models import user
 User = user.User
+from models import patient
+Patient = patient.Patient
 from models import database_storage
 import hashlib
+import geocoder
 from flask_login import login_user, login_required, logout_user, current_user
 
 # create a blueprint
@@ -54,6 +57,12 @@ def sign_up():
         country = request.form.get('country')
         city = request.form.get('city')
         address = request.form.get('address')
+        # g = geocoder.ip('me')
+        # gcode = g.latlng
+        # latitude = g.latlng[0]
+        # longitude = g.latlng[1]
+        latitude = 1.98975
+        longitude = 1.9788
 
         the_user = database_storage.session.query(User).filter_by(email=email).first()
         if the_user:
@@ -77,7 +86,7 @@ def sign_up():
             #                     gender=gender, phone_number=phone_number,
             #                     country=country, city=city,
             #                     address=address)
-            the_user = User()
+            the_user = Patient()
             the_user.user_name = user_name
             the_user.email = email
             the_user.password = password1
@@ -89,6 +98,8 @@ def sign_up():
             the_user.country = country
             the_user.city = city
             the_user.address = address
+            the_user.latitude = latitude
+            the_user.longitude = longitude
             the_user.save()
             # add creation of that user as patient
             login_user(the_user, remember=True) 

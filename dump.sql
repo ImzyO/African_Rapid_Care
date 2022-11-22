@@ -106,6 +106,27 @@ CREATE TABLE `reviews` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- @block Table structure for table `distances`
+--
+DROP TABLE IF EXISTS `distances`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `distances` (
+    `id` varchar(60) NOT NULL,
+    `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `patient_id` varchar(60) NOT NULL,
+    `office_id` varchar(60) NOT NULL,
+    `distance` float NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `patient_id` (`patient_id`),
+    KEY `office_id` (`office_id`),
+    CONSTRAINT `distances_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`),
+    CONSTRAINT `distances_ibfk_2` FOREIGN KEY (`office_id`) REFERENCES `offices` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- @block Table structure for table `specializations`
 --
 DROP TABLE IF EXISTS `specializations`;
