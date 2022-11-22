@@ -46,8 +46,9 @@ class Office(BaseModel, Base):
         """initialization"""
         super().__init__(*args, **kwargs)
 
+    """
     def __setattr__(self, name, value):
-        """returns latitude and longitude of office locations on maps"""
+        # returns latitude and longitude of office locations on maps
         # requests.get(base_url, dictionary of{ APIKEY, address
         # of office}) converted to string using json
         url = 'https://maps.googleapis.com/maps/api/geocode/json?'
@@ -73,3 +74,4 @@ class Office(BaseModel, Base):
                 value = float(geometry['location']['long'])
 
         super().__setattr__(name, value)
+        """
