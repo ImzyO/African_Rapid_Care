@@ -25,10 +25,12 @@ def appointments():
     if the_user:
         # return all appointments for all users
         apt_objs = database_storage.all(Appointments).values()
+        doctors = database_storage.all(Doctor).values()
         
     return render_template('appointments.html', the_user=current_user,
                            cache_id=uuid.uuid4(),
-                           apt_objs=apt_objs)
+                           apt_objs=apt_objs,
+                           doctors=doctors)
 
 @views.route('/book', strict_slashes=False)
 @login_required
