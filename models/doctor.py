@@ -74,6 +74,10 @@ class Doctor(User):
                              # cascade='delete',
                              cascade="all, delete, delete-orphan")
 
+    offices = relationship('Office', 
+            backref="doctor", 
+            cascade="all, delete, delete-orphan")
+
     def __init__(self, *args, **kwargs):
         """initialization"""
         super().__init__(*args, **kwargs)

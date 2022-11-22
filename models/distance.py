@@ -24,9 +24,11 @@ class Distance(BaseModel, Base):
         """initialization"""
         super().__init__(*args, **kwargs)
 
+    """
     def __setattr__(self, name, value):
-        """return distance"""
+        # return distance
         origin =  latitude, longitude
         destination = latitude, longitude
         url = "https://maps.googleapis.com/maps/api/distancematrix/json?"
         API_key = "AIzaSyBIMGTpeGByzmmMcBnLCj-6SLCulwVHkao"
+    """
