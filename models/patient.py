@@ -79,3 +79,31 @@ class Patient(User):
     #         value = g.latlng[1]
     #        value = 1.65987
     #    super().__setattr__(name, value)
+
+     def __setattr__(self, name, value):
+        """returns latitude and longitude of patient locations on maps"""
+        # requests.get(base_url, dictionary of{ APIKEY, address
+        # of office}) converted to string using json
+        url = 'https://maps.googleapis.com/maps/api/geocode/json?'
+        APIKEY = 'AIzaSyCZaGxLDW9tX2gnOmqr2TEWo_UxJpVZtzI' # need to change api key because this one is used by office
+        location = requests.get(url,
+                                {'API_KEY': APIKEY,
+                                 'address': "address"}).json()
+        location.keys()
+
+        # loaction.keys returns dict of keys['results, 'status]
+        if location['status'] == "OK":
+
+            # note the key results contains a dictionary of address
+            # components:city/locality/long name/geometry-lat&long
+            # since we need the exact location, we use the geometry
+            # key which returns a dictionary,
+            # containing bounds/location/northeast/southeast etc lat and long
+
+            geometry = location['result'][0]['geometry']
+            if name == 'latitude':
+                value = float(geometry['location']['lat'])
+            if name == 'longitude':
+                value = float(geometry['location']['long'])
+
+        super().__setattr__(name, value)

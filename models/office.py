@@ -8,6 +8,7 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey, Float
 from sqlalchemy.orm import relationship
 import requests
+import json
 
 
 class Office(BaseModel, Base):

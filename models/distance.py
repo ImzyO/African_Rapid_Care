@@ -3,7 +3,7 @@
 module defines a class Distance
 """
 
-
+import requests
 import models
 import sqlalchemy
 from models.base_model import BaseModel, Base
@@ -17,8 +17,16 @@ class Distance(BaseModel, Base):
     __tablename__ = "distances"
     patient_id = Column(String(60), ForeignKey('patients.id'), nullable=False)
     office_id = Column(String(60), ForeignKey('offices.id'), nullable=False)
-    distance = Column(Float, nullable=False)
+    origin = Column(Float, nullable=False)
+    destination = Column(Float, nullable=False)
 
     def __init__(self, *args, **kwargs):
         """initialization"""
         super().__init__(*args, **kwargs)
+
+    def __setattr__(self, name, value):
+        """return distance"""
+        origin =  latitude, longitude
+        destination = latitude, longitude
+        url = "https://maps.googleapis.com/maps/api/distancematrix/json?"
+        API_key = "AIzaSyBIMGTpeGByzmmMcBnLCj-6SLCulwVHkao"
