@@ -21,15 +21,21 @@ This project is our Portfolio Project, concluding our Foundations Year at ALX. W
 
 Here are some features of our app:
 
+### see-available-doctors
+
 ![see-available-doctors](./public/images/doctors.png)
 
 With this feature, the app uses the location of the user, the location of the doctors and the Google Maps Distance Matrix service to display the available doctors for the user.
 
-![book-appointment](./public/images/book.png)
+### book-appointment
+
+![book-appointment](./public/images/booking.png)
 
 This feature allows the user to book an appointment with a doctor
 
-![see-appointments](./public/images/appointments.png)
+### see-appointments
+
+![see-appointments](./public/images/appointments-profile.png)
 
 This feature allows the user to see all the appointments they've made
 
