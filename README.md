@@ -19,7 +19,7 @@ This project is our Portfolio Project, concluding our Foundations Year at ALX. W
 
 # Features
 
-Here are some features og our app:
+Here are some features of our app:
 
 ![see-available-doctors](./public/images/doctors.png)
 
