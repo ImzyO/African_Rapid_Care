@@ -6,6 +6,7 @@ import models
 import sqlalchemy
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey
+# from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 
 class Review(BaseModel, Base):

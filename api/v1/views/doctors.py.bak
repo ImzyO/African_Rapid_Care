@@ -18,7 +18,6 @@ from models.specialization import Specialization
 import requests
 import random
 import json
-import os
 
 
 @app_views.route('/doctors',
@@ -118,22 +117,22 @@ def put_doctor(doctor_id):
     database_storage.save()
     return make_response(jsonify(doctor.to_dict()), 200)
 
-@app_views.route('/doctors_search/<patient_id>',
+@app_views.route('/doctors_search/<patient_id>/<float:latitude>/<float:longitude>',
                  methods=['POST'],
                  strict_slashes=False)
 # @swag_from('documentation/doctor/post_doctor.yml',
 #           methods=['POST'])
-def doctors_search(patient_id):
+def doctors_search(patient_id, latitude, longitude):
     """Retrieve info for booking"""
     if request.get_json():
         params = request.get_json()
         latitude1 = params.get('latitude')
-        longitude1 = params.get('longitude')
+        longitude2 = params.get('longitude')
         # 1- update patient geocodes
         database_storage.session.query(Patient).filter(
             Patient.id == patient_id).update(
                 {Patient.latitude: latitude1,
-                 Patient.longitude: longitude1})
+                 Patient.longitude: longitude2})
         database_storage.save()
         
         #patient = database_storage.get_byID(Patient, patient_id)
@@ -146,10 +145,10 @@ def doctors_search(patient_id):
         for office in offices:
             url1 = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="
             origin_lat = str(latitude1)
-            origin_long = str(longitude1)
+            origin_long = str(longitude2)
             dest_lat = str(office.latitude)
             dest_long = str(office.longitude)
-            API_KEY = os.environ.get('ARC_GOOGLE_API_KEY')
+            API_KEY = "AIzaSyDtbnweO6DRVJpIQD4oCqXBeFC5pvyMOOs"
             url2 = url1 + origin_lat + "%2C" + origin_long
             url3 = url2 + "&destinations=" + dest_lat + "%2C" + dest_long
             url = url3 + "&key=" + API_KEY
@@ -172,73 +171,51 @@ def doctors_search(patient_id):
         # 3 - call for data with distances
         if gma_check:        
             objs = database_storage.session.query(Doctor,
-                                                  Specialization,
-                                                  Office,
-                                                  Distance,
-                                                  OfficeHours
-                                                  ).filter(
-                                                    Doctor.id == Office.doctor_id
-                                                  ).filter(
+                                            Office,
+                                            Distance,
+                                            OfficeHours).filter(
+                                                Doctor.id == Office.doctor_id
+                                                ).filter(
                                                     Office.id == Distance.office_id
-                                                  ).filter(
-                                                    Distance.patient_id == patient_id
-                                                  ).filter(
+                                                    ).filter(
+                                                        Distance.patient_id == patient_id
+                                                        ).filter(
                                                     Office.id == OfficeHours.office_id
-                                                  ).filter(
-                                                    OfficeHours.availability == "Yes"
-                                                  ).filter(
-                                                    Specialization.id == doctor_specialization.c.specialization_id
-                                                  ).filter(
-                                                    doctor_specialization.c.doctor_id == Doctor.id
-                                                  ).all()
+                                                    ).filter(
+                                                        OfficeHours.availability == "Yes"
+                                                        ).all()
             dico = [{'doctor': obj[0].to_dict(),
-                    'specialization': obj[1].to_dict(),
-                    'office': obj[2].to_dict(),
-                    'distance': obj[3].to_dict(),
-                    'office_hour': obj[4].to_dict()} for obj in objs]
+                    'office': obj[1].to_dict(),
+                    'distance': obj[2].to_dict(),
+                    'office_hour': obj[3].to_dict()} for obj in objs]
             return (jsonify(dico))
 
         if gma_check == 0:
             objs = database_storage.session.query(Doctor,
-                                                  Specialization,
-                                                  Office,
-                                                  OfficeHours
-                                                  ).filter(
+                                                Office,
+                                                OfficeHours).filter(
                                                     Doctor.id == Office.doctor_id
-                                                  ).filter(
-                                                    Office.id == OfficeHours.office_id
-                                                  ).filter(
-                                                    OfficeHours.availability == "Yes"
-                                                  ).filter(
-                                                    Specialization.id == doctor_specialization.c.specialization_id
-                                                  ).filter(
-                                                    doctor_specialization.c.doctor_id == Doctor.id
-                                                  ).all() 
+                                                    ).filter(
+                                                        Office.id == OfficeHours.office_id
+                                                        ).filter(
+                                                            OfficeHours.availability == "Yes"
+                                                            ).all() 
             dico = [{'doctor': obj[0].to_dict(),
-                     'specialization': obj[1].to_dict(),
-                     'office': obj[2].to_dict(),
-                     'office_hour': obj[3].to_dict()} for obj in objs]
+                     'office': obj[1].to_dict(),
+                     'office_hour': obj[2].to_dict()} for obj in objs]
             return (jsonify(dico))
 
     # when there is no address given in the request
     else:
         objs = database_storage.session.query(Doctor,
-                                              Specialization,
-                                              Office,
-                                              OfficeHours
-                                              ).filter(
-                                                Doctor.id == Office.doctor_id
-                                              ).filter(
-                                                Office.id == OfficeHours.office_id
-                                              ).filter(
-                                                OfficeHours.availability == "Yes"
-                                              ).filter(
-                                                Specialization.id == doctor_specialization.c.specialization_id
-                                              ).filter(
-                                                doctor_specialization.c.doctor_id == Doctor.id
-                                              ).all() 
-        dico = [{'doctor': obj[0].to_dict(),
-                 'specialization': obj[1].to_dict(),
-                 'office': obj[2].to_dict(),
-                 'office_hour': obj[3].to_dict()} for obj in objs]
+                                                Office,
+                                                OfficeHours).filter(
+                                                    Doctor.id == Office.doctor_id
+                                                    ).filter(
+                                                        Office.id == OfficeHours.office_id
+                                                        ).filter(
+                                                            OfficeHours.availability == "Yes"
+                                                            ).all() 
+        dico = [{'doctor': obj[0].to_dict(), 'office': obj[1].to_dict(),
+                    'office_hour': obj[2].to_dict()} for obj in objs]
         return (jsonify(dico))

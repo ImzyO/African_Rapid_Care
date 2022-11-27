@@ -9,6 +9,7 @@ from sqlalchemy import Column, String, ForeignKey, Float
 from sqlalchemy.orm import relationship
 import requests
 import json
+# from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 
 class Office(BaseModel, Base):

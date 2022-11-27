@@ -7,6 +7,10 @@ from flask import jsonify, abort, make_response, request
 from models import database_storage
 from models.appointment import Appointment
 from api.v1.views import app_views
+from models.patient import Patient
+from models.doctor import Doctor
+from models.office import Office
+from models.appointment_status import AppointmentStatus
 # from flasgger.utils import swag_from
 
 

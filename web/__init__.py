@@ -8,6 +8,7 @@ from models import doctor
 from models import review
 from models import specialization
 from models import appointment
+Appointment = appointment.Appointment
 from models import appointment_status
 from models import hospital_affiliation
 from models import office

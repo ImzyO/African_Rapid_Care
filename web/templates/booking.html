@@ -2,8 +2,18 @@
 {% block content %}
 <section id="booking" class="booking">
     <h1>You are about to book an appointment</h1>
-    <form method="POST" class="">
+    <form id="theForm" method="POST" class="">
         <div class="booking-form-container">
+            <!--
+            <div class="booking-form-group booking-form-group-textarea">
+                <input type="hidden" name="office_id" value="${office_id}">
+                <input type="hidden" name="patient_id" value="${patientid}">
+                <input type="hidden" name="day_of_the_week" value="${day_of_the_week}">
+                <input type="hidden" name="start_time" value=${start_time}>
+                <input type="hidden" name="end_time" value=${end_time}>
+                <input type="hidden" name="appointment_status_id" value="${appointment_status_id}">
+            </div>
+            -->
             <div class="booking-form-fieldset">
                 <fieldset class="booking-form-container-item">
                     <legend>How are you feeling ?</legend>
@@ -159,12 +169,12 @@
           
             <div class="booking-form-group booking-form-group-textarea">
                 <label class="grid-item-1" for="message">Do you want to add something ?</label>
-                <textarea class="booking-form-control booking-form-text" id="message" name="message" placeholder="Add something..."></textarea>
+                <textarea class="booking-form-control booking-form-text" id="symptoms" name="symptoms" placeholder="Add something..."></textarea>
             </div>
 
             <div class="form-buttons">
-                    <button class=" btn-cancel btn-primary2 btn-booking" type="submit">Cancel</button>
-                    <button class=" btn-primary btn-booking" type="submit">Confirm</button>
+                <a class=" button-a" href="/book">Cancel</a>
+                <button class=" btn-primary btn-booking" type="submit">Confirm</button>
             </div>
         </div>
     </form>

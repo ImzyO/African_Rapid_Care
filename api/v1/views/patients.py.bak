@@ -13,8 +13,6 @@ from models.office import Office
 from models.appointment_status import AppointmentStatus
 from models.distance import Distance
 from sqlalchemy import update
-from models.doctor import doctor_specialization
-from models.specialization import Specialization
 # from flasgger.utils import swag_from
 
 
@@ -132,7 +130,6 @@ def get_patient_appointment(patient_id):
                                           Office,
                                           Distance,
                                           Doctor,
-                                          Specialization,
                                           AppointmentStatus
                                           ).filter(
                                               Appointment.patient_id == patient_id   
@@ -146,16 +143,11 @@ def get_patient_appointment(patient_id):
                                             Office.id == Distance.office_id
                                           ).filter(
                                             Distance.patient_id == patient_id
-                                          ).filter(
-                                            Specialization.id == doctor_specialization.c.specialization_id
-                                          ).filter(
-                                            doctor_specialization.c.doctor_id == Doctor.id
                                           ).all()
 
     dico = [{'appointment': obj[0].to_dict(),
              'office': obj[1].to_dict(),
              'distance': obj[2].to_dict(),
              'doctor': obj[3].to_dict(),
-             'specialization': obj[4].to_dict(),
-             'status': obj[5].to_dict()} for obj in objs]
+             'status': obj[4].to_dict()} for obj in objs]
     return (jsonify(dico))

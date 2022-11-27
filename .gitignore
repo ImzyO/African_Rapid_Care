@@ -1,4 +1,7 @@
 __pycache__
 alxdump.sql
 env
-nab_api
+dumps
+deployment
+generatingdata.py
+.vscode

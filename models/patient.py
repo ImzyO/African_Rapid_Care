@@ -11,6 +11,7 @@ from sqlalchemy import DateTime
 from sqlalchemy.orm import relationship
 import geocoder
 # import hashlib
+# from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 
 class Patient(User):
@@ -79,3 +80,13 @@ class Patient(User):
     #         value = g.latlng[1]
     #        value = 1.65987
     #    super().__setattr__(name, value)
+
+
+# class PatientSchema(SQLAlchemyAutoSchema):
+#    """marshmallow schema"""
+#    class Meta:
+#       """class meta"""
+#       model = Patient
+#       load_instance = True
+#       include_relationships = True
+#       include_fk = True

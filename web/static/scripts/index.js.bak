@@ -1,7 +1,46 @@
 // When the user clicks on user profile
 //toggle between hiding and showing the dropdown content
 function profile_options() {
-  document.getElementById("myDropdown").classList.toggle("show");
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+user_geocode = {};
+/* get user geolocation */
+if (window.navigator.geolocation) {
+  // Geolocation available
+  window.navigator.geolocation
+  /*.getCurrentPosition();*/
+  .getCurrentPosition(showPosition, handleError);
+ } else {
+  console.error("Geolocation is not supported by this browser.");
+}
+
+function handleError(error) {
+  let errorStr;
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+      errorStr = 'User denied the request for Geolocation.';
+      break;
+    case error.POSITION_UNAVAILABLE:
+      errorStr = 'Location information is unavailable.';
+      break;
+    case error.TIMEOUT:
+      errorStr = 'The request to get user location timed out.';
+      break;
+    case error.UNKNOWN_ERROR:
+      errorStr = 'An unknown error occurred.';
+      break;
+    default:
+      errorStr = 'An unknown error occurred.';
+  }
+  console.error('Error occurred: ' + errorStr);
+}
+
+function showPosition(position) {
+  user_geocode['latitude'] = `${position.coords.latitude}`;
+  user_geocode['longitude'] = `${position.coords.longitude}`;
+  console.log(`Latitude: ${position.coords.latitude}, longitude: ${position.coords.longitude}`);
+  console.log(user_geocode);
 }
 
 // Close the dropdown menu if the user clicks outside of it
@@ -75,51 +114,16 @@ function resetPage(formName) {
   let thisForm = doc
 }
 
-user_geocode = {};
-
-function handleError(error) {
-  let errorStr;
-  switch (error.code) {
-    case error.PERMISSION_DENIED:
-      errorStr = 'User denied the request for Geolocation.';
-      break;
-    case error.POSITION_UNAVAILABLE:
-      errorStr = 'Location information is unavailable.';
-      break;
-    case error.TIMEOUT:
-      errorStr = 'The request to get user location timed out.';
-      break;
-    case error.UNKNOWN_ERROR:
-      errorStr = 'An unknown error occurred.';
-      break;
-    default:
-      errorStr = 'An unknown error occurred.';
-  }
-  console.error('Error occurred: ' + errorStr);
-}
-
-function showPosition(position) {
-  user_geocode['latitude'] = `${position.coords.latitude}`;
-  user_geocode['longitude'] = `${position.coords.longitude}`;
-  console.log(`Latitude: ${position.coords.latitude}, longitude: ${position.coords.longitude}`);
-  // console.log(user_geocode);
-}
-
-/* Document */
 $(document).ready(function(){
 /* Highlight current page*/
 const activePage = window.location.pathname;
-console.log(activePage);
+/* console.log(activePage);*/
 const navLinks = document.querySelectorAll('nav a').forEach(link => {
   if(link.href.includes(`${activePage}`)) {
   link.classList.add('active');
   }
 });
-/*
-const dates = document.getElementsByTagName("date").forEach(a_date => {
-  a_date.value = a_date.format("hh:mm");
-});
-*/
+
 /* consultation-day input checkbox */
 const checkedOH = {};
 $('.dayCheckbox').click(function () {
@@ -139,35 +143,27 @@ $('.timeCheckbox').click(function () {
     delete checkedTS[$(this).attr('data-id')];
   }
 });
-/* get user geolocation */
-if (window.navigator.geolocation) {
-  // Geolocation available, get current position */
-  window.navigator.geolocation.getCurrentPosition(showPosition, handleError);
- } else {
-  console.error("Geolocation is not supported by this browser.");
-}
 
 /*get user ID*/
 userId = $('.header-flex-user').attr('data-name'); 
 console.log(userId);
 
-/* When Book appointment is clicked */
-$('.bk-ap').click(function() {
+/* When Search button is not clicked */
 $.ajax({
   type: 'POST',
-  url: 'http://127.0.0.1:5001/api/v1/doctors_search/' + userId, /* + '/' + user_geocode['latitude'] + '/' + user_geocode['longitude'], */
+  url: 'http://127.0.0.1:5001/api/v1/doctors_search/' + userId + '/' + user_geocode['latitude'] + '/' + user_geocode['longitude'],
   contentType: 'application/json',
   dataType: 'json',
   data: JSON.stringify({'latitude': user_geocode['latitude'], 'longitude': user_geocode['longitude']})
 }).done(function (data) {
-/*  if (data.length == 0) {
+  if (data.length == 0) {
     const template = `<p class="coming-ap">Sorry there is no doctor available!`;
     $('.doctors .flex-cards').append(template);
-  } else { */
+  } else {
     $('.doctors .flex-cards').empty();
     for (let i = 0; i < data.length; i++) {
       let doc = data[i];
-      const template = `<article>
+      const template = `<article class="art">
       <div class="title_box">
         <div class="photo"><img class="center-img" src="../static/images/user.png" alt="Doctor"></div>
         <div class="doctor-identity">
@@ -175,35 +171,35 @@ $.ajax({
           <h3>${doc.specialization.specialization_name}</h3>
           <h3>${doc.office.office_address}</h3>
           <h3><span>${doc.distance.distance_text}</span> from you</h3>
-          <h3>Start Time:&nbsp;&nbsp;${doc.office_hour.start_time}</h3>
-          <h3>End Time:&nbsp;&nbsp;${doc.office_hour.end_time}</h3>
         </div>
       </div>
       <hr>
       <div class="information">
         <p>${doc.doctor.doctor_info}</p>
       </div>
+      <!-- 
+      <p class="office-id" data-id="office_id", data-name="{{doc.office.id}}">${doc.office.id}</p>
+      -->
       <a href="/booking?patient_id=${userId}&office_id=${doc.office.id}&day_of_the_week=${doc.office_hour.day_of_the_week}&start_time=${doc.office_hour.start_time}&end_time=${doc.office_hour.end_time}&appointment_status_id=730a8a28-83f3-422c-9435-ee4327c2b0b7&office_hour_id=${doc.office_hour.id}"><button class="btn-book center-img">Book</button></a>
       </article>`;
       $('.doctors .flex-cards').append(template); 
     }
-/*  } */
+  } 
 }); /*end of done */
-});
 
 /* Button search for filters is clicked*/
 $('.filters > button').click(function() {
   $.ajax({
     type: 'POST',
-    url: 'http://127.0.0.1:5001/api/v1/doctors_search/' + userId, /* + '/' + user_geocode['latitude'] + '/' + user_geocode['longitude'],*/
+    url: 'http://127.0.0.1:5001/api/v1/doctors_search/' + userId + '/' + user_geocode['latitude'] + '/' + user_geocode['longitude'],
     contentType: 'application/json',
     dataType: 'json',
     data: JSON.stringify({'latitude': user_geocode['latitude'], 'longitude': user_geocode['longitude']})
   }).done(function (data) {
-  /*  if (data.length == 0) {
+    if (data.length == 0) {
       const template = `<p class="coming-ap">Sorry there is no doctor available!`;
       $('.doctors .flex-cards').append(template);
-    } else { */
+    } else {
       $('.doctors .flex-cards').empty();
       for (let i = 0; i < data.length; i++) {
         let doc = data[i];
@@ -215,19 +211,17 @@ $('.filters > button').click(function() {
             <h3>${doc.specialization.specialization_name}</h3>
             <h3>${doc.office.office_address}</h3>
             <h3><span>${doc.distance.distance_text}</span> from you</h3>
-            <h3>Start Time:&nbsp;&nbsp;${doc.office_hour.start_time}</h3>
-          <h3>End Time:&nbsp;&nbsp;${doc.office_hour.end_time}</h3>
-            </div>
+          </div>
         </div>
         <hr>
         <div class="information">
           <p>${doc.doctor.doctor_info}</p>
         </div>
-        <a href="/booking?patient_id=${userId}&office_id=${doc.office.id}&day_of_the_week=${doc.office_hour.day_of_the_week}&start_time=${doc.office_hour.start_time}&end_time=${doc.office_hour.end_time}&appointment_status_id=730a8a28-83f3-422c-9435-ee4327c2b0b7&office_hour_id=${doc.office_hour.id}"><button class="btn-book center-img">Book</button></a>
+        <a href="/booking?patient_id=${userId}&office_id=${doc.office.id}&day_of_the_week=${doc.office_hour.day_of_the_week}&start_time=${doc.office_hour.start_time}&end_time=${doc.office_hour.end_time}&appointment_status_id=730a8a28-83f3-422c-9435-ee4327c2b0b7"><button class="btn-book center-img">Book</button></a>
         </article>`;
         $('.doctors .flex-cards').append(template); 
       }
-  /*  } */
+    }
   }); /*end of done */
 
 }); 
@@ -245,7 +239,7 @@ $.ajax({
     $('#appointments .flex-cards').empty();
       if (data.length == 0) {
         const template = `<p class="coming-ap">You have no appointments yet!
-                            <a class="bk-ap" href="/book">Click here to book one!</a></p>`;
+                            <a href="/book">Click here to book one!</a></p>`;
         $('#appointments .flex-cards').append(template);
       } else {
       for (let i = 0; i < data.length; i++) {
@@ -265,16 +259,13 @@ $.ajax({
           <!--
           <div class="appointment-day"><strong>Date: </strong>Tueday 20 May, 2023</div>
           -->
-          <div class="appointment-time"><strong>Start Time: </strong>${ap.appointment.start_time}</div>
-          <div class="appointment-time"><strong>End Time: </strong>${ap.appointment.end_time}</div>
+          <div class="appointment-time"><strong>Time: </strong>${ap.appointment.start_time} - ${ap.appointment.end_time}</div>
           <div class="appointment-status"><strong>Status: </strong>${ap.status.appointment_status}</div>
           <div class="appointmenttype"><strong>Type: </strong>${ap.appointment.appointment_type}</div>
           <div class="appointment-place"><strong>Office address: </strong>${ap.office.office_address}</div>
           <div class="appointment-symptoms"><strong>Symptoms: </strong>${ap.appointment.symptoms}</div>
         </div>
-        <!--
         <a href=""><button class="btn-cancel center-img">Cancel</button></a>
-        -->
         </article>`;
           $('#appointments .flex-cards').append(template); 
         }
@@ -298,8 +289,7 @@ $.ajax({
         <!--
           <div class="appointment-day"><strong>Date: </strong>Tueday 20 May, 2023</div>
           -->
-          <div class="appointment-time"><strong>Start Time: </strong>${ap.appointment.start_time}</div>
-          <div class="appointment-time"><strong>End Time: </strong>${ap.appointment.end_time}</div>
+          <div class="appointment-time"><strong>Time: </strong>${ap.appointment.start_time} - ${ap.appointment.end_time}</div>
           <div class="appointment-status"><strong>Status: </strong>${ap.status.appointment_status}</div>
           <div class="appointmenttype"><strong>Type: </strong>${ap.appointment.appointment_type}</div>
           <div class="appointment-place"><strong>Office address: </strong>${ap.office.office_address}</div>

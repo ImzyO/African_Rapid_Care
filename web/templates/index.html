@@ -19,7 +19,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Import JavaScript static/scripts/index.js -->
+    <!-- Import Jquery and JavaScript static/scripts/index.js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.js"></script>
     <!-- -->
 		<script type="text/javascript" src="../static/scripts/index.js?{{ cache_id }}"></script>
     <!-- -->
@@ -40,7 +41,7 @@
             <ul class="nav-list">
               {% if the_user.is_authenticated %}
               <li><a data-active="appointments" href="/appointments">My Appointments</a></li>
-              <li><a data-active="book" href="/book">Book Appointment</a></li>
+              <li><a class="bk-ap" data-active="book" href="/book">Book Appointment</a></li>
               <li><a data-active="store" href="/store">Store</a></li>
               {% else %}
               <li><a data-active="login" href="/login">Login</a></li>
@@ -49,8 +50,8 @@
             </ul>
           </nav>
           {% if the_user.is_authenticated %}
-          <div class="header-flex header-flex-user dropdown">
-            
+          <!--<div class="logged-user">{{the_user.user_name}}</div>-->
+          <div class="header-flex header-flex-user dropdown" data-id="user_id" data-name="{{the_user.id}}">
             <p onclick="profile_options()"><img class="center-img dropbtn" src="../static/images/user.png"></p>
             <!--
             <a href="#" onclick="profile_options()"><img class="center-img dropbtn" src="/web/static/images/user.png"></a>
@@ -91,7 +92,7 @@
       <div class="container">
         {% block content %}
         <div class="container-index">
-          <img src="../static/images/landing.jpg" alt="" width="100%" height="100%"">
+          <img src="../static/images/landing.jpg" alt="" width="100%" height="100%">
           <div class="welcome">
             <h1>Welcome to ARC</h1>
             <h2>Find your doctor right next door!</h2>
@@ -127,6 +128,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       -->
   </body>
-</html>
-    </body>
 </html>

@@ -5,6 +5,7 @@ from datetime import datetime
 import uuid
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, DateTime
+# from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 
 Base = declarative_base()

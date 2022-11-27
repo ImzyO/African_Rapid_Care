@@ -4,6 +4,7 @@
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
 import uuid
+from flask import request, flash, redirect, url_for
 
 
 # create a blueprint
@@ -17,9 +18,14 @@ def about():
                            cache_id=uuid.uuid4())
 
 # define route for contact page
-@footer_views.route('/contact', strict_slashes=False)
+@footer_views.route('/contact',
+                    methods=['GET', 'POST'],
+                    strict_slashes=False)
 def contact():
     """go to contact page"""
+    if request.method == "POST":
+        flash("Thank you for your message, we'll come back to you shortly!", category="success")
+        return redirect(url_for('views.home'))
     return render_template('contact.html', the_user=current_user,
                            cache_id=uuid.uuid4())
 

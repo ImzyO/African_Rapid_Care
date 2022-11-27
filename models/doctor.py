@@ -10,6 +10,7 @@ from sqlalchemy import Column, String, ForeignKey, Table
 from sqlalchemy import DateTime
 from sqlalchemy.orm import relationship
 # import hashlib
+# from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 
 doctor_specialization = Table("doctor_specialization",
@@ -23,9 +24,6 @@ doctor_specialization = Table("doctor_specialization",
                                      String(60),
                                      ForeignKey('specializations.id'),
                                      primary_key=True,
-                                     nullable=False),
-                              Column("ds_info",
-                                     String(1024),
                                      nullable=False))
 
 
@@ -74,9 +72,9 @@ class Doctor(User):
                              # cascade='delete',
                              cascade="all, delete, delete-orphan")
 
-    offices = relationship('Office', 
-            backref="doctor", 
-            cascade="all, delete, delete-orphan")
+    offices = relationship('Office',
+                           backref="doctor",
+                           cascade="all, delete, delete-orphan")
 
     def __init__(self, *args, **kwargs):
         """initialization"""

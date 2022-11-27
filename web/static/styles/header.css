@@ -116,7 +116,7 @@ table {
     color: #3cab72;
 }
 
-.header-flex-nav a:active{
+nav a:is(:link, :active, :visited).active{
     text-decoration: none;
     color: #3cab72;
     font-size: 20px
@@ -124,11 +124,18 @@ table {
 
 .header-flex-user {
     /*border: 1px solid black;*/
-   /* margin-right: 20px;
-    /*align-self: flex-end;*/
+   /* margin-right: 20px;*/
+    align-self: flex-end;
     flex: 1;
     flex-shrink: 0;
 }
+/*
+.header-flex-user .logged-user {
+    padding: 5px 5px;
+    margin: 25px 3px;
+    border: 1px solid red;
+}
+*/
 
 .header-flex-user img {
     /* when paragraph */
@@ -137,6 +144,8 @@ table {
     /*width: 90%;
     height: 90%;*/
     margin-top: 3px;
+
+    /*border: 1px solid red;*/
 }
 
 .center-img {
@@ -154,6 +163,9 @@ table {
     cursor: pointer;
   }
 
+.hidden-elt {
+    display: none;
+}
 .dropdown {
     position: relative;
     float: right; /* to align dropdown to right */

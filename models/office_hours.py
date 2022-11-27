@@ -7,6 +7,7 @@ import sqlalchemy
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey, DateTime
 from datetime import datetime
+# from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 
 class OfficeHours(BaseModel, Base):

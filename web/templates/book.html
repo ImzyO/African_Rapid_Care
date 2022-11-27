@@ -2,24 +2,26 @@
 {% block content %}
 <!-- Filtering to be added as future feature of the app -->
 <section id="filters" class="filters">
+    <!-- -->
     <div class="appointment-type">
         <h3>Appointment Type</h3>
 		<h4>&nbsp;</h4>
 		<div class="popover">
 			<ul>
-                <li><input type="checkbox" data-id="" data-name="">Virtual Appointment</li>
-				<li><input type="checkbox" data-id="" data-name="">Physical Appointment</li>		
+                <li><input class="typeCheckbox" type="checkbox" name="check-type" onclick="checkOnlyOne4(this.value);" value="Virtual Appointment" data-id="type-1" data-name="Virtual">Virtual Appointment</li>
+				<li><input class="typeCheckbox" type="checkbox" name="check-type" onclick="checkOnlyOne4(this.value);" value="Physical Appointment" data-id="type-2" data-name="Physical">Physical Appointment</li>		
 			</ul>
 		</div>
     </div>
+
     <div class="consultation-field">
         <h3>Field</h3>
 	    <h4>&nbsp;</h4>
         <div class="popover">
 			<ul>
-                <li><input type="checkbox" data-id="" data-name="">Physical health</li>
-				<li><input type="checkbox" data-id="" data-name="">Mental Health</li>		
-			</ul>
+                <li><input type="checkbox" class="fieldCheckbox" type="checkbox" name="check-field" onclick="checkOnlyOne3(this.value);" value="Physical Health" data-id="field-1" data-name="Physical">Physical Health</li>
+				<li><input type="checkbox" class="fieldCheckbox" type="checkbox" name="check-field" onclick="checkOnlyOne3(this.value);" value="Mental Health" data-id="field-2" data-name="Mental">Mental Health</li>		
+            </ul>
 		</div>
     </div>
     <div class="consultation-day">
@@ -27,13 +29,13 @@
 	    <h4>&nbsp;</h4>
         <div class="popover">
 			<ul>
-                <li><input type="checkbox" data-id="" data-name="">Monday</li>
-				<li><input type="checkbox" data-id="" data-name="">Tuesday</li>
-                <li><input type="checkbox" data-id="" data-name="">Wednesday</li>
-                <li><input type="checkbox" data-id="" data-name="">Thursday</li>
-                <li><input type="checkbox" data-id="" data-name="">Friday</li>
-                <li><input type="checkbox" data-id="" data-name="">Saturday</li>		
-			</ul>
+                <li><input class="dayCheckbox" type="checkbox" name="check-day" onclick="checkOnlyOne(this.value);" value="Monday" data-id="day2" data-name="Monday">Monday</li>	
+                <li><input class="dayCheckbox" type="checkbox" name="check-day" onclick="checkOnlyOne(this.value);" value="Tuesday" data-id="day3" data-name="Tuesday">Tueday</li>
+                <li><input class="dayCheckbox" type="checkbox" name="check-day" onclick="checkOnlyOne(this.value);" value="Wednesday" data-id="day4" data-name="Wednesday">Wednesday</li>
+                <li><input class="dayCheckbox" type="checkbox" name="check-day" onclick="checkOnlyOne(this.value);" value="Thursday" data-id="day5" data-name="Thursday">Thursday</li>
+                <li><input class="dayCheckbox" type="checkbox" name="check-day" onclick="checkOnlyOne(this.value);" value="Friday" data-id="day6" data-name="Friday">Friday</li>
+                <li><input class="dayCheckbox" type="checkbox" name="check-day" onclick="checkOnlyOne(this.value);" value="Saturday" data-id="day7" data-name="Saturday">Saturday</li>
+            </ul>
 		</div>
     </div>
     <div class="consultation-time">
@@ -41,31 +43,32 @@
 	    <h4>&nbsp;</h4>
         <div class="popover">
 			<ul>
-                <li><input type="checkbox" data-id="" data-name="">08:00 AM - 09:00 AM</li>
-				<li><input type="checkbox" data-id="" data-name="">09:00 AM - 10:00 AM</li>
-                <li><input type="checkbox" data-id="" data-name="">10:00 AM - 11:00 AM</li>
-				<li><input type="checkbox" data-id="" data-name="">11:00 AM - 12:00 PM</li>	
-                <li><input type="checkbox" data-id="" data-name="">12:00 PM - 01:00 PM</li>
-                <li><input type="checkbox" data-id="" data-name="">01:00 PM - 02:00 PM</li>
-                <li><input type="checkbox" data-id="" data-name="">02:00 PM - 03:00 PM</li>
-                <li><input type="checkbox" data-id="" data-name="">03:00 PM - 04:00 PM</li>
-                <li><input type="checkbox" data-id="" data-name="">04:00 PM - 05:00 PM</li>
-                <li><input type="checkbox" data-id="" data-name="">05:00 PM - 06:00 PM</li>
-                <li><input type="checkbox" data-id="" data-name="">06:00 PM - 07:00 PM</li>
-                <li><input type="checkbox" data-id="" data-name="">07:00 PM - 08:00 PM</li>  	
+                <li><input class="timeCheckbox" type="checkbox" name=check-time" onclick="checkOnlyOne2(this.value);" value="08:00" data-id="ts_1" data-name="08:00">08:00 AM - 09:00 AM</li>
+				<li><input class="timeCheckbox" type="checkbox" name=check-time" onclick="checkOnlyOne2(this.value);" value="09:00" data-id="ts_2" data-name="09:00">09:00 AM - 10:00 AM</li>
+                <li><input class="timeCheckbox" type="checkbox" name=check-time" onclick="checkOnlyOne2(this.value);" value="10:00" data-id="ts_3" data-name="10:00">10:00 AM - 11:00 AM</li>
+				<li><input class="timeCheckbox" type="checkbox" name=check-time" onclick="checkOnlyOne2(this.value);" value="11:00" data-id="ts_4" data-name="11:00">11:00 AM - 12:00 PM</li>	
+                <li><input class="timeCheckbox" type="checkbox" name=check-time" onclick="checkOnlyOne2(this.value);" value="12:00" data-id="ts_5" data-name="12:00">12:00 PM - 01:00 PM</li>
+                <li><input class="timeCheckbox" type="checkbox" name=check-time" onclick="checkOnlyOne2(this.value);" value="13:00" data-id="ts_6" data-name="13:00">01:00 PM - 02:00 PM</li>
+                <li><input class="timeCheckbox" type="checkbox" name=check-time" onclick="checkOnlyOne2(this.value);" value="14:00" data-id="ts_7" data-name="14:00">02:00 PM - 03:00 PM</li>
+                <li><input class="timeCheckbox" type="checkbox" name=check-time" onclick="checkOnlyOne2(this.value);" value="15:00" data-id="ts_8" data-name="15:00">03:00 PM - 04:00 PM</li>
+                <li><input class="timeCheckbox" type="checkbox" name=check-time" onclick="checkOnlyOne2(this.value);" value="16:00" data-id="ts_9" data-name="16:00">04:00 PM - 05:00 PM</li>
+                <li><input class="timeCheckbox" type="checkbox" name=check-time" onclick="checkOnlyOne2(this.value);" value="17:00" data-id="ts_10" data-name="17:00">05:00 PM - 06:00 PM</li>  	
 			</ul>
 		</div>
     </div>
-    <button class="btn-filters">
-        Search
+    <button class="btn-filters" type="submit">
+        Refresh
     </button>
 </section>
 
-<section id="book" class="cards">
+<section id="book" class="doctors cards">
+    
     <h1>Available doctors</h1>
     <div class="flex-cards">
+        <!--
         <article>
             <div class="title_box">
+                
                 <div class="photo"><img class="center-img" src="../static/images/user.png" alt="Doctor"></div>
                 <div class="doctor-identity">
                     <h2><strong>Dr. John Doe</strong></h2>
@@ -139,5 +142,7 @@
             </div>
             <a href="/booking"><button class="btn-book center-img">Book</button></a>
         </article>
+        -->
+    </div>
 </section>
 {% endblock %}

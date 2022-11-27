@@ -9,6 +9,7 @@ from sqlalchemy import Column, String, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from models.patient import Patient
+# from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 
 class Appointment(BaseModel, Base):

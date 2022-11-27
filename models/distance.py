@@ -8,6 +8,7 @@ import models
 import sqlalchemy
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, Float, ForeignKey
+# from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 
 class Distance(BaseModel, Base):
@@ -17,8 +18,8 @@ class Distance(BaseModel, Base):
     __tablename__ = "distances"
     patient_id = Column(String(60), ForeignKey('patients.id'), nullable=False)
     office_id = Column(String(60), ForeignKey('offices.id'), nullable=False)
-    origin = Column(Float, nullable=False)
-    destination = Column(Float, nullable=False)
+    distance_text = Column(String(60), nullable=False)
+    distance = Column(Float, nullable=False)
 
     def __init__(self, *args, **kwargs):
         """initialization"""

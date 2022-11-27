@@ -12,7 +12,9 @@ from sqlalchemy import Column, String, DateTime
 from sqlalchemy.orm import relationship
 import hashlib
 from flask_login import UserMixin
-
+# from marshmallow_sqlalchemy import SQLAlchemySchema, auto_field
+# from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
+# from marshmallow import Schema, fields
 
 class User(BaseModel, Base, UserMixin):
     """user class with attributes of user"""
@@ -64,3 +66,24 @@ class User(BaseModel, Base, UserMixin):
             value = hashlib.sha512(value.encode()).hexdigest()
 
         super().__setattr__(name, value)
+
+# class UserSchema(SQLAlchemyAutoSchema):
+# class UserSchema(SQLAlchemySchema):
+#    """marshmallow schema"""
+#    class Meta:
+#        """class meta"""
+#        model = User
+
+#    user_name = auto_field()
+#    email = auto_field()
+#    password = auto_field()
+#    phone_number = auto_field()
+#    first_name = auto_field()
+#    last_name = auto_field()
+#    gender = auto_field()
+#    birthdate = auto_field()
+#    type = auto_field()
+
+#    __mapper_args__ = auto_field()
+#    patient = auto_field()
+#    doctor = auto_field()
