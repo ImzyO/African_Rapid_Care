@@ -60,7 +60,7 @@ We each wrote a blog post about our ARC journey.
 # Architecture
 
 
-# Acknowledgments
+# Acknowledegments
 
 * ALX staff - For the help, advice and resources they granted from the begining or the curriculum and during the project
 
