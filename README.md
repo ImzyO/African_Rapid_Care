@@ -40,7 +40,8 @@ This feature allows the user to book an appointment with a doctor
 This feature allows the user to see all the appointments they've made
 
 ### Video showcasing the app
-Watch some features in action here ! ![video-features](https://youtu.be/Od0vyEPzyhc)
+Click the image below to watch some features in action! 
+[![video-features](./public/images/home.png)](https://youtu.be/Od0vyEPzyhc)
 
 ## Known bugs
 * The loading of the doctors is not as fluid as expected, API calls can lag.......
