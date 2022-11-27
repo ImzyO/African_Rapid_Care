@@ -51,7 +51,7 @@ We are a team of two passionate about providing sustainable solutions to problem
 * **Imani Omboto** [@](https://twitter.com/) - 
 
 ## Blog posts
-We each wrote a blog post about out ARC journey.
+We each wrote a blog post about our ARC journey.
 
 * Nabil's article: [ARC: .....](https://medium.com/)
 * Imani's article: [ARC: .....](https://medium.com/)
