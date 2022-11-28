@@ -79,4 +79,5 @@ We each wrote a blog post about our ARC journey.
 
 
 # License
+MIT License
 
