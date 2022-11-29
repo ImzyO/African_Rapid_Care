@@ -21,7 +21,7 @@ We aim to use technology to propose sustainable solutions to the problems we fac
 We are a team of two, passionate about providing sustainable solutions to problems around us in order to make life easier and more beautiful for all.
 
 * **Nabil Affo** [@TheNabVerse](https://twitter.com/TheNabVerse) - Author, Poet, Artist , Content Creator, Telecoms & Software Engineer.
-* **Imani Omboto** [@Imani Omboto](https://www.linkedin.com/in/imani-omboto-1452b91b9) - 
+* **Imani Omboto** [@Imani Omboto](https://www.linkedin.com/in/imani-omboto-1452b91b9) - Business and Technology Innovator, Software engineer & Graphic designer
 
 ## Blog posts
 We each wrote a blog post about our ARC journey.
