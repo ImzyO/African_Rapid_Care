@@ -11,7 +11,7 @@ They can see their upcoming appointments and their past appointments, update the
 ## The Context
 This project is our Portfolio Project, concluding our Foundations Year at ALX. We were able to choose our project partners and project topic, as long as we present a working program at the end of the three weeks of development.
 
-## Take a tour of the deployed version at [http://africanrapidcare.com](http://africanrapidcare.com)
+## Take a tour of the deployed version at [https://africanrapidcare.com](https://africanrapidcare.com)
 
 # Features
 
@@ -77,7 +77,7 @@ We each wrote a blog post about our ARC journey.
 # Architecture
 ![technology](./public/images/tech.png)
 
-ARC is a Flask web application build with the following technologies:
+ARC is a Flask web application built with the following technologies:
 ## Front End:
 - **HTML/CSS** for markup and styling of the webpages
 - **Javascript** for dynamic content
