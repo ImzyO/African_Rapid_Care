@@ -14,55 +14,61 @@ This project is our Portfolio Project, concluding our Foundations Year at ALX. W
 ## Take a tour of the deployed version at [http://africanrapidcare.com](http://africanrapidcare.com)
 
 # Features
+Here are some features of our web application.
 
-Here are some features of our app:
-
-![home](./public/images/home.png)
 ### 1- sign-up
-![sign-up](./public/images/sign-up.png)
 To have access to the service, the user needs to open an account.
 
+
+![sign-up](./public/images/sign-up.png)
+
 ### 2- sign-up
+Once the user has opened an account, they can sign in to use the service offered.
+
+
 ![login](./public/images/login.png)
-Once the user has opened an account, the can sign in to use the service offered.
+
 
 ### 3- see-available-doctors
+With this feature, the app uses the location of the user, the location of the doctors and the Google Maps Distance Matrix tool to display the available doctors for the user.
+
 
 ![see-available-doctors](./public/images/doctors.png)
 
-With this feature, the app uses the location of the user, the location of the doctors and the Google Maps Distance Matrix service to display the available doctors for the user.
-
 ### 4- book-appointment
+This feature allows the user to book an appointment with a doctor
+
 
 ![book-appointment](./public/images/booking.png)
 
-This feature allows the user to book an appointment with a doctor
 
 ### 5- see-appointments
+This feature allows the user to see all the appointments they've made
+
 
 ![see-appointments](./public/images/appointments-profile.png)
 
-This feature allows the user to see all the appointments they've made
-
 ### Video showcasing the app
-Click the image below to watch some features in action! 
+[Click the image below to watch some features in action!](https://youtu.be/Od0vyEPzyhc)
+
+
 [![video-features](./public/images/home.png)](https://youtu.be/Od0vyEPzyhc)
 
 ## Known bugs
 * The loading of the doctors is not as fluid as expected, API calls can lag.
-* There are issue when using on mobile like elements being shrinked... 
+* There are issues when using on mobile. For example elements being shrinked... 
 
 ## Future for the App
-For now the app has just some basic features. We have the ambition to add more features such as virtual appointments, emergency care and more.
+For now the app just has some basic features and is developped for a small area only (city). We have the ambition to expand the app to a larger scope, to add more features such as virtual appointments, emergency care and more.
 
 # About
 ## Story behind ARC
 Since COVID-19, it has proven necessary to not only have in person  healthcare assistance services but also virtual health care services. With a healthcare website that intends to bridge the gap between time and a user's needs, lives could be saved and better.
-Oftentimes when people get sick (nothing too serious but still need to see a doctor), they encounter several challenges trying to get treated as soon as possible. The hospital could be far away from them in the city, there could be a long queue there…This is why we want to build “ARC” (African Rapid Care).
-We aim to usse technology to propose ustainable solutions to the problems we face daily and the health domain is an important one. We ceased this opportunity to propose something that has the potential of saving people's lives.
+Oftentimes when people get sick (nothing too serious but still need to see a doctor), they encounter several challenges trying to get treated as soon as possible. The hospital could be far away from them in the city, there could be a long queue there… This is why we wanted to build **“ARC”** (African Rapid Care).
+We aim to use technology to propose sustainable solutions to the problems we face daily in the different aspects of our  lives, the health domain being one of the most important ones. We ceased this opportunity to propose something that has the potential of saving people's lives.
 
-## OurTeam
-We are a team of two passionate about providing sustainable solutions to problems around us in order to make life more beautiful for all.
+## Our Team
+We are a team of two, passionate about providing sustainable solutions to problems around us in order to make life easier and more beautiful for all.
 
 * **Nabil Affo** [@TheNabVerse](https://twitter.com/TheNabVerse) - Author, Poet, Artist , Content Creator, Telecoms & Software Engineer.
 * **Imani Omboto** [@](https://twitter.com/) - 
@@ -77,19 +83,19 @@ We each wrote a blog post about our ARC journey.
 # Architecture
 ![technology](./public/images/tech.png)
 
-ARC is a Flask web application build with the following technologies:
+ARC is a Flask web application built with the following technologies:
 ## Front End:
-- **HTML/CSS** for markup and styling of the webpages
+- **HTML/CSS** with **Jinja** templating engine for markup and styling of the webpages
 - **Javascript** for dynamic content
 
-## REST API Google Distance Matrix API
-- GET, POST requests are handeled
-- Google Distance Matrix Api is used to compute distance between an origin and destinations
+## REST API & Google Distance Matrix API
+- **REST API** with methods GET, POST ... requests are handeled
+- **Google Distance Matrix API** is used to compute distance between origins and destinations
 
 
 ## Database
-- MySQL Relationational Database to store data
-- Handle database with ORM (SQLAlchemy)
+- **MySQL Relationational Database** to store data
+- Handle database with ORM (**SQLAlchemy**)
 ![database](./public/images/database.png)
 
 ## Back End
@@ -101,12 +107,17 @@ ARC is a Flask web application build with the following technologies:
 
 # Acknowledegments
 
-* ALX staff - For the help, advice and resources they granted from the begining or the curriculum and during the project
+* **ALX staff** - For the help, advice and resources they granted us from the begining of the curriculum and during the project.
 
-* Cohort 5 and all ALX students - For your friendship, support throughout the year.
+* **Cohort 5 and all ALX students** - For your friendship, support throughout the year.
 
-* YOU, the reader for taking the time to go through our project !
+* **YOU, the reader** - For taking the time to go through our project!
 
 
 # License
-MIT License
+**MIT License**
+_Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:_
+
+_The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software._
+
+_THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE._
