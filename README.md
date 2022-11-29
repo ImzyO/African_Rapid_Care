@@ -3,6 +3,7 @@
 
 # Introduction
 
+## The Project
 **ARC** is an appointment website where patients in need of health care can quickly find an available and appropriate physician in their vicinity.
 
 Patients can sign up on the website and browse the list of availables doctors. They can book a physical appointment with a doctor focusing on the nearness.
@@ -10,6 +11,24 @@ They can see their upcoming appointments and their past appointments, update the
 
 ## The Context
 This project is our Portfolio Project, concluding our Foundations Year at ALX. We were able to choose our project partners and project topic, as long as we present a working program at the end of the three weeks of development.
+
+## Story behind ARC
+Since COVID-19, it has proven necessary to not only have in person  healthcare assistance services but also virtual health care services. With a healthcare website that intends to bridge the gap between time and a user's needs, lives could be saved and better.
+Oftentimes when people get sick (nothing too serious but still need to see a doctor), they encounter several challenges trying to get treated as soon as possible. The hospital could be far away from them in the city, there could be a long queue there… This is why we wanted to build **“ARC”** (African Rapid Care).
+We aim to use technology to propose sustainable solutions to the problems we face daily in the different aspects of our  lives, the health domain being one of the most important ones. We ceased this opportunity to propose something that has the potential of saving people's lives.
+
+## Our Team
+We are a team of two, passionate about providing sustainable solutions to problems around us in order to make life easier and more beautiful for all.
+
+* **Nabil Affo** [@TheNabVerse](https://twitter.com/TheNabVerse) - Author, Poet, Artist , Content Creator, Telecoms & Software Engineer.
+* **Imani Omboto** [@](https://twitter.com/) - 
+
+## Blog posts
+We each wrote a blog post about our ARC journey.
+
+* Nabil's article: [ARC: .....](https://medium.com/)
+* Imani's article: [ARC: .....](https://medium.com/)
+
 
 ## Take a tour of the deployed version at [https://africanrapidcare.com](http://africanrapidcare.com)
 
@@ -61,28 +80,10 @@ This feature allows the user to see all the appointments they've made
 ## Future for the App
 For now the app just has some basic features and is developped for a small area only (city). We have the ambition to expand the app to a larger scope, to add more features such as virtual appointments, emergency care and more.
 
-# About
-## Story behind ARC
-Since COVID-19, it has proven necessary to not only have in person  healthcare assistance services but also virtual health care services. With a healthcare website that intends to bridge the gap between time and a user's needs, lives could be saved and better.
-Oftentimes when people get sick (nothing too serious but still need to see a doctor), they encounter several challenges trying to get treated as soon as possible. The hospital could be far away from them in the city, there could be a long queue there… This is why we wanted to build **“ARC”** (African Rapid Care).
-We aim to use technology to propose sustainable solutions to the problems we face daily in the different aspects of our  lives, the health domain being one of the most important ones. We ceased this opportunity to propose something that has the potential of saving people's lives.
-
-## Our Team
-We are a team of two, passionate about providing sustainable solutions to problems around us in order to make life easier and more beautiful for all.
-
-* **Nabil Affo** [@TheNabVerse](https://twitter.com/TheNabVerse) - Author, Poet, Artist , Content Creator, Telecoms & Software Engineer.
-* **Imani Omboto** [@](https://twitter.com/) - 
-
-## Blog posts
-We each wrote a blog post about our ARC journey.
-
-* Nabil's article: [ARC: .....](https://medium.com/)
-* Imani's article: [ARC: .....](https://medium.com/)
-
 
 # Architecture
 ![technology](./public/images/tech.png)
-
+This is project has been demanding in the backend.
 ARC is a Flask web application built with the following technologies:
 ## Front End:
 - **HTML/CSS** with **Jinja** templating engine for markup and styling of the webpages
