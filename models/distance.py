@@ -31,5 +31,5 @@ class Distance(BaseModel, Base):
         origin =  latitude, longitude
         destination = latitude, longitude
         url = "https://maps.googleapis.com/maps/api/distancematrix/json?"
-        API_key = "AIzaSyBIMGTpeGByzmmMcBnLCj-6SLCulwVHkao"
+        API_key = ""
     """

@@ -53,7 +53,7 @@ class Office(BaseModel, Base):
         # requests.get(base_url, dictionary of{ APIKEY, address
         # of office}) converted to string using json
         url = 'https://maps.googleapis.com/maps/api/geocode/json?'
-        APIKEY = 'AIzaSyCZaGxLDW9tX2gnOmqr2TEWo_UxJpVZtzI'
+        APIKEY = ''
         location = requests.get(url,
                                 {'API_KEY': APIKEY,
                                  'address': "office_address"}).json()
