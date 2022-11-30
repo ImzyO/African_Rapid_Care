@@ -30,7 +30,7 @@ We each wrote a blog post about our ARC journey.
 * Imani's article: [ARC: .....](https://medium.com/)
 
 
-## Take a tour of the deployed version at [https://africanrapidcare.com](http://africanrapidcare.com)
+## Take a tour of the deployed version at [https://africanrapidcare.com](http://africanrapidcare.tk)
 
 # Features
 Here are some features of our web application.
