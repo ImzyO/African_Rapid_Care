@@ -21,7 +21,7 @@ We aim to use technology to propose sustainable solutions to the problems we fac
 We are a team of two, passionate about providing sustainable solutions to problems around us in order to make life easier and more beautiful for all.
 
 * **Nabil Affo** [@TheNabVerse](https://twitter.com/TheNabVerse) - Author, Poet, Artist , Content Creator, Telecoms & Software Engineer.
-* **Imani Omboto** [@](https://twitter.com/) - 
+* **Imani Omboto** [@Imani Omboto](https://www.linkedin.com/in/imani-omboto-1452b91b9) - Business and Technology Innovator, Software engineer & Graphic designer
 
 ## Blog posts
 We each wrote a blog post about our ARC journey.
@@ -103,8 +103,10 @@ ARC is a Flask web application built with the following technologies:
 - **Flask** web framework based on Python
 
 ## Server/Deployment
-- 
-- 
+- AWS EC2 instance with nginx server & MySQL relational database
+- AWS S3 buckets - stored html, css, png, jpg and js files as zips
+- AWS Route53 - DNS configuration
+- AWS EC2 instance servering as a loadbalancer
 
 # Acknowledegments
 

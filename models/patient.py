@@ -58,10 +58,10 @@ class Patient(User):
                            cascade="all, delete, delete-orphan")
 
     # one to many relationship between patient and distance
-    distances = relationship('Distance',
-                             backref='patient',
-                             # cascade='delete',
-                             cascade="all, delete, delete-orphan")
+    # distances = relationship('Distance',
+    #                         backref='patient',
+    #                         # cascade='delete',
+    #                         cascade="all, delete, delete-orphan")
 
     def __init__(self, *args, **kwargs):
         """initialization"""

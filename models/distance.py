@@ -16,8 +16,8 @@ class Distance(BaseModel, Base):
     a user in common metrics"""
 
     __tablename__ = "distances"
-    patient_id = Column(String(60), ForeignKey('patients.id'), nullable=False)
-    office_id = Column(String(60), ForeignKey('offices.id'), nullable=False)
+    # patient_id = Column(String(60), ForeignKey('patients.id'), nullable=False)
+    # office_id = Column(String(60), ForeignKey('offices.id'), nullable=False)
     distance_text = Column(String(60), nullable=False)
     distance = Column(Float, nullable=False)
 
