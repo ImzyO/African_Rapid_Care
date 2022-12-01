@@ -20,7 +20,7 @@ We aim to use technology to propose sustainable solutions to the problems we fac
 ## Our Team
 We are a team of two, passionate about providing sustainable solutions to problems around us in order to make life easier and more beautiful for all.
 
-* **Nabil Affo** [@TheNabVerse](https://twitter.com/TheNabVerse) - Author, Poet, Artist , Content Creator, Telecoms & Software Engineer.
+* [**Nabil Affo**](https://nabil2i.github.io/) [@TheNabVerse](https://twitter.com/TheNabVerse) - Author, Poet, Artist , Content Creator, Telecoms & Software Engineer.
 * **Imani Omboto** [@Imani Omboto](https://www.linkedin.com/in/imani-omboto-1452b91b9) - Business and Technology Innovator, Software engineer & Graphic designer
 
 ## Blog posts
@@ -78,12 +78,12 @@ This feature allows the user to see all the appointments they've made
 * There are issues when using on mobile. For example elements being shrinked... 
 
 ## Future for the App
-For now the app just has some basic features and is developped for a small area only (city). We have the ambition to expand the app to a larger scope, to add more features such as virtual appointments, emergency care and more.
+For now the app just has some basic features and is developped for a small area only (city), and the narrowed search for doctors (only present in the design) is not yet fully implemented as it wasn't in the MVP. We have the ambition to expand the app to a larger scope, add a tailored search, add more features such as virtual appointments, emergency care and more.
 
 
 # Architecture
 ![technology](./public/images/tech.png)
-This is project has been demanding in the backend.
+This project has been demanding in the backend.
 ARC is a Flask web application built with the following technologies:
 ## Front End:
 - **HTML/CSS** with **Jinja** templating engine for markup and styling of the webpages
@@ -107,7 +107,7 @@ ARC is a Flask web application built with the following technologies:
 
 # Acknowledegments
 
-* **ALX staff** - For the help, advice and resources they granted us from the begining of the curriculum and during the project.
+* **ALX staff** - For the help, advice and resources they granted us from the beginning of the curriculum and during the project.
 
 * **Cohort 5 and all ALX students** - For your friendship, support throughout the year.
 
@@ -116,6 +116,7 @@ ARC is a Flask web application built with the following technologies:
 
 # License
 **MIT License**
+
 _Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:_
 
 _The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software._
