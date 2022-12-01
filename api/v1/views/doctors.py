@@ -127,13 +127,13 @@ def doctors_search(patient_id):
     """Retrieve info for booking"""
     if request.get_json():
         params = request.get_json()
-        latitude1 = params.get('latitude')
-        longitude1 = params.get('longitude')
+        latitude = params.get('latitude')
+        longitude = params.get('longitude')
         # 1- update patient geocodes
         database_storage.session.query(Patient).filter(
             Patient.id == patient_id).update(
-                {Patient.latitude: latitude1,
-                 Patient.longitude: longitude1})
+                {Patient.latitude: latitude,
+                 Patient.longitude: longitude})
         database_storage.save()
         
         #patient = database_storage.get_byID(Patient, patient_id)
@@ -145,8 +145,8 @@ def doctors_search(patient_id):
         # update the distance between the office and the patient
         for office in offices:
             url1 = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="
-            origin_lat = str(latitude1)
-            origin_long = str(longitude1)
+            origin_lat = str(latitude)
+            origin_long = str(longitude)
             dest_lat = str(office.latitude)
             dest_long = str(office.longitude)
             API_KEY = os.environ.get('ARC_GOOGLE_API_KEY')
@@ -157,7 +157,8 @@ def doctors_search(patient_id):
             headers = {}
             response = requests.request("GET", url, headers=headers, data=payload)
             data = response.json()
-            if data['rows'][0]['elements'][0]['status'] == "OK":
+            #if data['rows'][0]['elements'][0]['status'] == "OK":
+            if data['rows'][0]['elements'][0]['distance']['text']:
                 gma_check += 1
                 database_storage.session.query(
                     Distance).filter(

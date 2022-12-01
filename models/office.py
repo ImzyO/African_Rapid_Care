@@ -75,4 +75,4 @@ class Office(BaseModel, Base):
                 value = float(geometry['location']['long'])
 
         super().__setattr__(name, value)
-        """
+    """

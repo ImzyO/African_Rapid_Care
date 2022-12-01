@@ -42,16 +42,6 @@ class Doctor(User):
         'polymorphic_identity': 'doctor',
     }
 
-    # attributes from user
-    # user_name = Column(String(100), nullable=False)
-    # email = Column(String(100), unique=True, nullable=False)
-    # password = Column(String(200), nullable=False)
-    # phone_number = Column(String(100), nullable=False)
-    # first_name = Column(String(100), nullable=False)
-    # last_name = Column(String(100), nullable=False)
-    # gender = Column(String(100), nullable=False)
-    # birthdate = Column(DateTime, nullable=False)
-
     # one to many relationship between doctors and reviews
     reviews = relationship('Review', backref='doctor',
                            # cascade='delete',

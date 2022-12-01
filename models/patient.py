@@ -9,7 +9,7 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, Float, ForeignKey
 from sqlalchemy import DateTime
 from sqlalchemy.orm import relationship
-import geocoder
+# import geocoder
 # import hashlib
 # from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
@@ -32,16 +32,6 @@ class Patient(User):
     __mapper_args__ = {
         'polymorphic_identity': 'patient',
     }
-
-    # attributes from user
-    # user_name = Column(String(100), nullable=False)
-    # email = Column(String(100), unique=True, nullable=False)
-    # password = Column(String(200), nullable=False)
-    # phone_number = Column(String(100), nullable=False)
-    # first_name = Column(String(100), nullable=False)
-    # last_name = Column(String(100), nullable=False)
-    # gender = Column(String(100), nullable=False)
-    # birthdate = Column(DateTime, nullable=False)
 
     # one to many relationship between patients and appointments
     appointments = relationship('Appointment',
@@ -80,13 +70,3 @@ class Patient(User):
     #         value = g.latlng[1]
     #        value = 1.65987
     #    super().__setattr__(name, value)
-
-
-# class PatientSchema(SQLAlchemyAutoSchema):
-#    """marshmallow schema"""
-#    class Meta:
-#       """class meta"""
-#       model = Patient
-#       load_instance = True
-#       include_relationships = True
-#       include_fk = True

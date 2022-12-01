@@ -155,7 +155,7 @@ console.log(userId);
 $('.bk-ap').click(function() {
 $.ajax({
   type: 'POST',
-  url: 'http://127.0.0.1:5001/api/v1/doctors_search/' + userId, /* + '/' + user_geocode['latitude'] + '/' + user_geocode['longitude'],*/
+  url: 'https://african-rapid-care.tk/api/v1/doctors_search/' + userId, /* + '/' + user_geocode['latitude'] + '/' + user_geocode['longitude'], */
   contentType: 'application/json',
   dataType: 'json',
   data: JSON.stringify({'latitude': user_geocode['latitude'], 'longitude': user_geocode['longitude']})
@@ -195,7 +195,7 @@ $.ajax({
 $('.filters > button').click(function() {
   $.ajax({
     type: 'POST',
-    url: 'http://127.0.0.1:5001/api/v1/doctors_search/' + userId, /* + '/' + user_geocode['latitude'] + '/' + user_geocode['longitude'],*/
+    url: 'https://african-rapid-care.tk/api/v1/doctors_search/' + userId, /* + '/' + user_geocode['latitude'] + '/' + user_geocode['longitude'],*/
     contentType: 'application/json',
     dataType: 'json',
     data: JSON.stringify({'latitude': user_geocode['latitude'], 'longitude': user_geocode['longitude']})
@@ -237,7 +237,7 @@ $('.filters > button').click(function() {
 /* Get appointments of a patient*/
 $.ajax({
   type: 'POST',
-  url: 'http://127.0.0.1:5001/api/v1/patients/' + userId + '/appointments',
+  url: 'https://african-rapid-care.tk/api/v1/patients/' + userId + '/appointments',
   contentType: 'application/json',
   dataType: 'json',
   /* data: { 'user_id': userId}*/
