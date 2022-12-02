@@ -1,5 +1,5 @@
 # African Rapid Care ~ A doctor right next door to take care of you!
-![logo](./public/images/arc3.jpg)
+![logo](./public/images/arc.jpg)
 
 # Introduction
 
