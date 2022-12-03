@@ -26,8 +26,8 @@ We are a team of two, passionate about providing sustainable solutions to proble
 ## Blog posts
 We each wrote a blog post about our ARC journey.
 
-* Nabil's article: [ARC: .....](https://medium.com/)
-* Imani's article: [ARC: .....](https://medium.com/)
+* Nabil's article: [ARC: Reflections on building a healthcare web app](https://medium.com/@nabilwrites/arc-reflections-on-building-a-healthcare-web-app-55ce5d8543a9)
+* Imani's article: [.....](https://medium.com/)
 
 
 ## Take a tour of the deployed version at [https://african-rapid-care.tk](https://african-rapid-care.tk)
