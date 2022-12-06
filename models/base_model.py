@@ -5,7 +5,6 @@ from datetime import datetime
 import uuid
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, DateTime
-# from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 
 Base = declarative_base()
@@ -47,7 +46,7 @@ class BaseModel:
         models.database_storage.save()
 
     def to_dict(self):
-        """returns simpler dictionary format of an instance"""
+        """returns custom dictionary format of an instance"""
         # __name__ returns child class and not parent class BaseModel
 
         dictionary = self.__dict__.copy()

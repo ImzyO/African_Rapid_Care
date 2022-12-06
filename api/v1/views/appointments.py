@@ -53,7 +53,6 @@ def get_appointment(appointment_id):
 #           methods=['DELETE'])
 def delete_appointment(appointment_id):
     """Deletes a appointment Object"""
-
     appointment = database_storage.get(Appointment, appointment_id)
 
     if not appointment:

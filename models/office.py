@@ -9,7 +9,6 @@ from sqlalchemy import Column, String, ForeignKey, Float
 from sqlalchemy.orm import relationship
 import requests
 import json
-# from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 
 class Office(BaseModel, Base):
@@ -30,17 +29,14 @@ class Office(BaseModel, Base):
 
     office_hours = relationship('OfficeHours',
                                 backref='office',
-                                # cascade='delete'
                                 cascade="all, delete, delete-orphan")
     appointments = relationship('Appointment',
                                 backref='office',
-                                # cascade='delete'
                                 cascade="all, delete, delete-orphan")
 
     # one to many relationship between office and distance
     distances = relationship('Distance',
                              backref='office',
-                             # cascade='delete',
                              cascade="all, delete, delete-orphan")
 
     def __init__(self, *args, **kwargs):

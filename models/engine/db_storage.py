@@ -35,7 +35,7 @@ class DBstorage:
 
     def __init__(self):
         """initialization"""
-        # {} {} {} {} - name, password, host, database name
+        # {} {} {} {} - username, password, host, database name
         self.engine = create_engine("mysql+mysqldb://{}:{}@{}/{}".format(
             os.environ.get('ARC_MYSQL_USER'),
             os.environ.get('ARC_MYSQL_PASSWORD'),

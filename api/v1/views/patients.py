@@ -116,6 +116,7 @@ def put_patient(patient_id):
     database_storage.save()
     return make_response(jsonify(patient.to_dict()), 200)
 
+
 @app_views.route('/patients/<string:patient_id>/appointments',
                  methods=['POST'],
                  strict_slashes=False)

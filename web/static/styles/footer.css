@@ -24,7 +24,7 @@
 }
 
 .footer-flex-nav ul {
-    display: flex;/*either this of li display inline*/
+    display: flex; /*either this of li display inline*/
     /*list-style-type:none;*/
     /* justify-content: center;*/
 }

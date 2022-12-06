@@ -12,7 +12,6 @@ Office = office.Office
 from models.distance import Distance
 from models import database_storage
 import uuid
-# import geocoder
 from flask_login import login_user, login_required
 from flask_login import logout_user, current_user
 import hashlib
@@ -66,10 +65,6 @@ def sign_up():
         country = request.form.get('country')
         city = request.form.get('city')
         address = request.form.get('address')
-        # g = geocoder.ip('me')
-        # gcode = g.latlng
-        # latitude = g.latlng[0]
-        # longitude = g.latlng[1]
         latitude = 0.000
         longitude = 0.000
 
@@ -110,6 +105,7 @@ def sign_up():
             the_user.latitude = latitude
             the_user.longitude = longitude
             the_user.save()
+
             # Create entries in the distances table
             offices = database_storage.all(Office).values()   
             for office in offices:
@@ -119,6 +115,7 @@ def sign_up():
                 distance_entry.distance_text="0 km"
                 distance_entry.distance = 0000
                 distance_entry.save()
+
             # add creation of that user as patient
             login_user(the_user, remember=True) 
             flash("Account created!", category='success')
@@ -150,7 +147,7 @@ def account():
         new_password2 = request.form.get('new_password2')
         city = request.form.get('city')
         address = request.form.get('address')
-        
+
         if email != the_user.email:
             if len(email) < 5:
                     flash("Email must have more characters!", category='error')
@@ -178,7 +175,7 @@ def account():
                     count +=1
                     # logout_user()
                     # return redirect(url_for('auth.login'))
-        
+
         if city != patient.city:
             database_storage.session.query(Patient).filter(
                             Patient.id == the_user.id).update(
@@ -195,11 +192,10 @@ def account():
                                 {Patient.address: address})
                 database_storage.save()
                 count +=1
-        
+
         if count > 0:
             flash("Changes saved!", category='success')
 
     return render_template('account.html',
-    #                       account=account,
                            the_user=current_user,
                            cache_id=uuid.uuid4())

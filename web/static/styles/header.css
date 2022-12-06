@@ -53,7 +53,7 @@ table {
 
 /*
   ========================================
-  Custom styles
+  ARC Custom styles
   ========================================
 */
 .header-flex-container {
@@ -199,7 +199,7 @@ nav a:is(:link, :active, :visited).active{
     padding: 5px 10px;
 }
 
-  /* Change color of dropdown links on hover */
+/* Change color of dropdown links on hover */
 .dropdown-content a:hover {
     background-color: #ddd;
     background-color: #3cab72;

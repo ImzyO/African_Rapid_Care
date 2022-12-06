@@ -7,7 +7,7 @@ from models import database_storage
 
 app = create_app()
 
-# begin flask page rendering
+
 @app.teardown_appcontext
 def teardown_db(exception):
     """
