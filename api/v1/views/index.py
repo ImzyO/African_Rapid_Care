@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Index
+Index module
 """
 from api.v1.views import app_views
 from flask import jsonify
@@ -24,6 +24,7 @@ from models.distance import Distance
 def status():
     """ returns API status if okay 200 response"""
     return jsonify({"status": "OK"})
+
 
 @app_views.route('/stats',
                  methods=['GET'],

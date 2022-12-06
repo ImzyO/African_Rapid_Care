@@ -6,9 +6,9 @@
     <form id="editAccount" method="POST" class="sign-up">
         <div class="form-container">
             <div class="form-group">
-                <!-- for is the class of input-->
+                <!-- 'for' is the class of input-->
                 <label for="user_name">Username:</label>
-                <!-- name is used to retrieve value at back end-->
+                <!-- 'name' is used to retrieve value at back end-->
                 <input type="text" class="form-control" id="user_name" name="user_name" value="{{the_user.user_name}}" readonly>
             </div>
             <div class="form-group">
@@ -314,17 +314,11 @@
                 <label for="address">Address:</label>
                 <input type="text" class="form-control" id="address" name="address" value="{{the_user.address}}">
             </div>
-            <!--
-            <p>By creating an account you agree to our <a href="/terms-privacy" style="color:dodgerblue">Terms & Privacy</a>.</p>
-            -->
+
             <div class="form-btn">
                 <button class="btn-center btn btn-primary" type="submit">Save</button>
             </div>
-            </div>
-
-    </form>
-
-
-    
+        </div>
+    </form>  
 </section>
 {% endblock %}

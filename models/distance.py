@@ -8,7 +8,6 @@ import models
 import sqlalchemy
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, Float, ForeignKey
-# from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 
 class Distance(BaseModel, Base):
@@ -24,4 +23,3 @@ class Distance(BaseModel, Base):
     def __init__(self, *args, **kwargs):
         """initialization"""
         super().__init__(*args, **kwargs)
-

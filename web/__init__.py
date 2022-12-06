@@ -23,23 +23,23 @@ def create_app():
     app = Flask(__name__)
     # encrypt/secure cookies and session data
     app.config['SECRET_KEY'] = 'arc_secret_key'
-        
+
     # register our views
     from .views import views
     from .auth import auth
     from .footer_views import footer_views
-    
+
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(footer_views, url_prefix='/')
-    
-    # we create and initializa the Flask login extension
+
+    # we create and initialize the Flask login extension
     login_manager = LoginManager()
-    # where to go if we are not logged in
+    # go to login view if we are not logged in
     login_manager.login_view = 'auth.login'
     # link login_manager instance to the app
     login_manager.init_app(app)
-    
+
     # telling flask how we load a user
     @login_manager.user_loader
     def load_user(id):
@@ -49,5 +49,5 @@ def create_app():
         """ 
         # return User.query.get(int(id))
         return database_storage.session.query(User).get(id)
-    
+
     return app

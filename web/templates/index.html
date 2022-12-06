@@ -15,20 +15,24 @@
     <link rel="stylesheet" type="text/css" href="../static/styles/contact.css?{{ cache_id }}">
     <link rel="stylesheet" type="text/css" href="../static/styles/filters.css?{{ cache_id }}">
     <link rel="icon" href="../static/images/icon.png?{{ cache_id }}">
+
     <script src="https://kit.fontawesome.com/7d6fcd6a2c.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
     <!-- Import Jquery and JavaScript static/scripts/index.js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.js"></script>
     <!-- -->
 		<script type="text/javascript" src="../static/scripts/index.js?{{ cache_id }}"></script>
+
     <!-- -->
     <!-- Import JavaScript static/scripts/index.js in the jinja way-->
     <!--
 		<script type="text/javascript" src="{{ url_for('static', filename='scripts/index.js?{{ cache_id }}')}}"></script>
     -->
-    <!-- block title to ve overridden-->
+
+    <!-- block title to be overridden in different pages-->
     <title>{% block title %}African Rapid Care{% endblock %}</title>
     </head>
     <body>
@@ -50,7 +54,7 @@
             </ul>
           </nav>
           {% if the_user.is_authenticated %}
-          <!--<div class="logged-user">{{the_user.user_name}}</div>-->
+          <!-- <div class="logged-user">{{the_user.user_name}}</div> -->
           <div class="header-flex header-flex-user dropdown" data-id="user_id" data-name="{{the_user.id}}">
             <p onclick="profile_options()"><img class="center-img dropbtn" src="../static/images/user.png"></p>
             <!--
@@ -120,12 +124,13 @@
           </div>
         </div>
       </footer>
-      <!-- Optional JavaScript -->
+
+    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!--
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-      -->
+    -->
   </body>
 </html>

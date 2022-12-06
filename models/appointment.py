@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""module appointments defines time, type and status of appointments"""
+"""module appointments defines time,
+type and status of appointments"""
 
 
 import models
@@ -9,7 +10,6 @@ from sqlalchemy import Column, String, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from models.patient import Patient
-# from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 
 class Appointment(BaseModel, Base):

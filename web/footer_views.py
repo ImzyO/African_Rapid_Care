@@ -24,7 +24,8 @@ def about():
 def contact():
     """go to contact page"""
     if request.method == "POST":
-        flash("Thank you for your message, we'll come back to you shortly!", category="success")
+        flash("Thank you for your message, we'll come back to you shortly!",
+              category="success")
         return redirect(url_for('views.home'))
     return render_template('contact.html', the_user=current_user,
                            cache_id=uuid.uuid4())

@@ -1,5 +1,5 @@
 // When the user clicks on user profile
-//toggle between hiding and showing the dropdown content
+// toggle between hiding and showing the dropdown content
 function profile_options() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -115,11 +115,13 @@ const navLinks = document.querySelectorAll('nav a').forEach(link => {
   link.classList.add('active');
   }
 });
+
 /*
 const dates = document.getElementsByTagName("date").forEach(a_date => {
   a_date.value = a_date.format("hh:mm");
 });
 */
+
 /* consultation-day input checkbox */
 const checkedOH = {};
 $('.dayCheckbox').click(function () {
@@ -139,6 +141,7 @@ $('.timeCheckbox').click(function () {
     delete checkedTS[$(this).attr('data-id')];
   }
 });
+
 /* get user geolocation */
 if (window.navigator.geolocation) {
   // Geolocation available, get current position */
@@ -163,7 +166,8 @@ $.ajax({
 /*  if (data.length == 0) {
     const template = `<p class="coming-ap">Sorry there is no doctor available!`;
     $('.doctors .flex-cards').append(template);
-  } else { */
+  } else {
+*/
     $('.doctors .flex-cards').empty();
     for (let i = 0; i < data.length; i++) {
       let doc = data[i];
@@ -187,7 +191,7 @@ $.ajax({
       </article>`;
       $('.doctors .flex-cards').append(template); 
     }
-/*  } */
+//  }
 }); /*end of done */
 });
 
@@ -203,7 +207,8 @@ $('.filters > button').click(function() {
   /*  if (data.length == 0) {
       const template = `<p class="coming-ap">Sorry there is no doctor available!`;
       $('.doctors .flex-cards').append(template);
-    } else { */
+    } else {
+  */
       $('.doctors .flex-cards').empty();
       for (let i = 0; i < data.length; i++) {
         let doc = data[i];
@@ -227,7 +232,7 @@ $('.filters > button').click(function() {
         </article>`;
         $('.doctors .flex-cards').append(template); 
       }
-  /*  } */
+  //  }
   }); /*end of done */
 
 }); 
@@ -240,7 +245,7 @@ $.ajax({
   url: 'http://127.0.0.1:5001/api/v1/patients/' + userId + '/appointments',
   contentType: 'application/json',
   dataType: 'json',
-  /* data: { 'user_id': userId}*/
+  /* data: { 'user_id': userId} */
   success: function (data) {
     $('#appointments .flex-cards').empty();
       if (data.length == 0) {

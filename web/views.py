@@ -91,7 +91,7 @@ def booking():
         appointment_booked.symptoms = symptoms
         appointment_booked.save()
 
-        # mark the slot as not available
+        # mark the slot as not available after it has been booked
         database_storage.session.query(OfficeHours).filter(
             OfficeHours.id == office_hour_id).update(
                 {OfficeHours.availability: "No"})

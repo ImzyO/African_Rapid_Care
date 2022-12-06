@@ -136,7 +136,7 @@ def doctors_search(patient_id):
                  Patient.longitude: longitude})
         database_storage.save()
         
-        #patient = database_storage.get_byID(Patient, patient_id)
+        # patient = database_storage.get_byID(Patient, patient_id)
 
         # 2- get offices and update distances
         offices = database_storage.all(Office).values()
@@ -157,7 +157,7 @@ def doctors_search(patient_id):
             headers = {}
             response = requests.request("GET", url, headers=headers, data=payload)
             data = response.json()
-            #if data['rows'][0]['elements'][0]['status'] == "OK":
+            # if data['rows'][0]['elements'][0]['status'] == "OK":
             if data['rows'][0]['elements'][0]['distance']['text']:
                 gma_check += 1
                 database_storage.session.query(
