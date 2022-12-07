@@ -140,7 +140,9 @@ def doctors_search(patient_id):
 
         # 2- get offices and update distances
         offices = database_storage.all(Office).values()
-        gma_check = 0
+        # gmaCheck (google maps api Check):
+        # if gmaCheck == 0, google maps api couldn't be retrieved
+        gmaCheck = 0
 
         # update the distance between the office and the patient
         for office in offices:
@@ -159,7 +161,7 @@ def doctors_search(patient_id):
             data = response.json()
             # if data['rows'][0]['elements'][0]['status'] == "OK":
             if data['rows'][0]['elements'][0]['distance']['text']:
-                gma_check += 1
+                gmaCheck += 1
                 database_storage.session.query(
                     Distance).filter(
                         Distance.patient_id == patient_id
@@ -171,7 +173,7 @@ def doctors_search(patient_id):
                                 })
                 database_storage.save()
         # 3 - call for data with distances
-        if gma_check:        
+        if gmaCheck:        
             objs = database_storage.session.query(Doctor,
                                                   Specialization,
                                                   Office,
@@ -199,7 +201,7 @@ def doctors_search(patient_id):
                     'office_hour': obj[4].to_dict()} for obj in objs]
             return (jsonify(dico))
 
-        if gma_check == 0:
+        if gmaCheck == 0:
             objs = database_storage.session.query(Doctor,
                                                   Specialization,
                                                   Office,
