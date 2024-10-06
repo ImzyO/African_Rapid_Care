@@ -14,15 +14,19 @@ from models import hospital_affiliation
 from models import office
 from models import office_hours
 import os
+from dotenv import load_dotenv
 from flask_login import LoginManager
 User = user.User
+
+
+load_dotenv()
 
 
 def create_app():
     """create a flask application"""
     app = Flask(__name__)
     # encrypt/secure cookies and session data
-    app.config['SECRET_KEY'] = 'arc_secret_key'
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
     # register our views
     from .views import views
